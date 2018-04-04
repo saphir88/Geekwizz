@@ -1,8 +1,37 @@
-body {
-  background-color: black;
-  color: white;
+/*Redimension général de la page*/
+html {
+    height: 100%;
 }
 
+body {
+    background-color: black;
+    color : white;
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/*Footer*/
+footer{
+    position: absolute; bottom: 0; left: 0; right: 0;
+}
+
+.condition{
+     text-align: right;
+ }
+
+a:hover{
+    color: #424242;
+    text-decoration: none;
+}
+
+footer p, a {
+    font-size: 2vh;
+    color: #424242;
+}
+
+/*Page mentions légales*/
 .mentions a {
   color: red;
 }
@@ -12,6 +41,7 @@ body {
   color: #B20000;
 }
 
+/*Page résultat*/
 img {
   margin-top: 100px;
 }
@@ -37,4 +67,15 @@ img {
   margin-top : 50px;
   margin-bottom: 50px;
   text-transform: uppercase;
+}
+
+/*Partie Mobile et Tablette*/
+@media screen and (max-width: 768px){
+    footer{
+        text-align: center;
+    }
+
+    .condition {
+        text-align: center;
+    }
 }

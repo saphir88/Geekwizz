@@ -92,4 +92,8 @@ class ItemController extends AbstractController
         // TODO : delete the item with id $id
         return $this->twig->render('Item/index.html.twig');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7a1301292bb7edba089c09edf3af31b5b390f347
