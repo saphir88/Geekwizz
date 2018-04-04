@@ -30,6 +30,28 @@ class ItemController extends AbstractController
     }
 
     /**
+     * @return string
+     */
+    public function mentions_legales()
+    {
+        $itemManager = new ItemManager();
+        $items = $itemManager->findAll();
+
+        return $this->twig->render('Item/mentions_legales.html.twig', ['items' => $items]);
+    }
+
+    /**
+     * @return string
+     */
+    public function resultat()
+    {
+        $itemManager = new ItemManager();
+        $items = $itemManager->findAll();
+
+        return $this->twig->render('Item/resultat.html.twig', ['items' => $items]);
+    }
+
+    /**
      * @param $id
      * @return string
      */
@@ -70,4 +92,8 @@ class ItemController extends AbstractController
         // TODO : delete the item with id $id
         return $this->twig->render('Item/index.html.twig');
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 64d60fbf7157ff979b58b150ae104e55cfe19abc
