@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+  <h1>Items</h1>
+
+  <ul>
+    {% for item in items %}
+      <li>{{ item.id }}.
+        {{ item.title }}</li>
+    {% else %}
+      <li>Nothing to display</li>
+    {% endfor %}
+  </ul>
+  <div class="btn-group" role="group" aria-label="...">
+    <a href="/mentions"><button type="button" class="btn btn-default">Mentions légales</button></a>
+  </div>
+{% endblock %}
