@@ -1,11 +1,24 @@
+@font-face
+{
+  font-family: 'BebasNeue';
+  src: url('../fonts/BebasNeue-Regular.ttf');
+}
+
+@font-face
+{
+  font-family: 'Oswald';
+  src: url('../fonts/Oswald-Regular.ttf');
+}
 
 body
 {
+  font-family: 'BebasNeue';
   color: white;
   background: black;
-  white-space: nowrap;
 }
 
+
+/* Modifier l'alignement vertical de la div .home */
 .home
 {
   text-align: center;
@@ -14,25 +27,38 @@ body
   transform: translateY(-50%);
   width: 100vw;
   min-width: 320px;
+  white-space: nowrap;
 }
 
-.btn-default
+/*       Modifier le bouton "Challenge Nous"       */
+.button
 {
   color: white;
-  background-color: red;
+  background-color: #f30000;
   border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
 }
 
+/*      Paramètres version MOBILES/TABLETTES     */
 @media only screen and (max-width: 970px)
 {
+  .button
+  {
+    font-size: 20px;
+  }
+
   h2
   {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   h3
   {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .logo img
@@ -41,5 +67,42 @@ body
     height: auto;
     margin-bottom: 20px;
     margin-top: 5px
+  }
+
+  .button:visited
+  {
+    color: white;
+    background-color: #f30000;
+    text-decoration: none;
+  }
+
+}
+
+/*      Paramètres version DESKTOP     */
+@media only screen and (min-width: 971px)
+{
+  .button
+  {
+    font-size: 30px;
+  }
+
+  .logo img
+  {
+    margin-bottom: 30px;
+    margin-top: 15px;
+  }
+
+  .button:hover
+  {
+    background-color: #a20000;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  .button:visited
+  {
+    color: white;
+    background-color: #f30000;
+    text-decoration: none;
   }
 }
