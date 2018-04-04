@@ -1,37 +1,55 @@
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('../font/BebasNeue-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Oswald';
+  src: url('../font/Oswald-Regular.ttf');
+}
+
 /*Redimension général de la page*/
+
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    background-color: black;
-    color : white;
-    position: relative;
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
+  background-color: black;
+  color: white;
+  position: relative;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /*Footer*/
-footer{
-    position: absolute; bottom: 0; left: 0; right: 0;
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-family: 'Oswald';
 }
 
-.condition{
-     text-align: right;
- }
-
-a:hover{
-    color: #424242;
-    text-decoration: none;
+.condition {
+  text-align: right;
 }
 
-footer p, a {
-    font-size: 2vh;
-    color: #424242;
+a:hover {
+  color: #424242;
+  text-decoration: none;
+}
+
+footer p, footer a {
+  font-size: 2vh;
+  color: #424242;
+  font-family: 'Oswald';
 }
 
 /*Page mentions légales*/
+
 .mentions a {
   color: red;
 }
@@ -42,21 +60,26 @@ footer p, a {
 }
 
 /*Page résultat*/
-img {
-  margin-top: 100px;
-}
 
 .corner {
   border-radius: 10px;
   border: 1px solid red;
-  text-transform: uppercase;
-  font-weight: bold;
-  background-color: #424242;
+  background-color: #202020;
   padding: 20px;
 }
 
 .resultat {
-  font-size: 1.5em;
+  font-size: 1.75em;
+  font-family: 'BebasNeue';
+  text-transform: uppercase;
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
 }
 
 .resultat .redtext {
@@ -64,18 +87,17 @@ img {
 }
 
 .resultat h1 {
-  margin-top : 50px;
+  margin-top: 50px;
   margin-bottom: 50px;
-  text-transform: uppercase;
 }
 
 /*Partie Mobile et Tablette*/
-@media screen and (max-width: 768px){
-    footer{
-        text-align: center;
-    }
 
-    .condition {
-        text-align: center;
-    }
+@media screen and (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+  .condition {
+    text-align: center;
+  }
 }
