@@ -11,13 +11,6 @@
   src: url('../fonts/Oswald-Regular.ttf');
 }
 
-body
-{
-  font-family: 'BebasNeue';
-  color: white;
-  background: black;
-}
-
 
 /* Modifier l'alignement vertical de la div .home */
 .home
@@ -44,73 +37,15 @@ body
   border-radius: 3px;
 }
 
-/*      Paramètres version MOBILES/TABLETTES     */
-@media only screen and (max-width: 970px)
-{
-  .button
-  {
-    font-size: 20px;
-  }
 
-  h2
-  {
-    font-size: 20px;
-  }
 
-  h3
-  {
-    font-size: 15px;
-  }
-
-  .logo img
-  {
-    width: 200px;
-    height: auto;
-    margin-bottom: 20px;
-    margin-top: 5px
-  }
-
-  .button:visited
-  {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-/*      Paramètres version DESKTOP     */
-@media only screen and (min-width: 971px)
-{
-  .button
-  {
-    font-size: 30px;
-  }
-
-  .logo img
-  {
-    margin-bottom: 30px;
-    margin-top: 15px;
-  }
-
-  .button:hover
-  {
-    background-color: #a20000;
-    color: whitesmoke;
-    text-decoration: none;
-  }
-
-  .button:visited
-  {
-    color: white;
-    text-decoration: none;
-  }
-}
-
-/*Redimension général de la page
+/*Redimension général de la page*/
 html {
     height: 100%;
 }
 
 body {
+    font-family: 'BebasNeue';
     background-color: black;
     color : white;
     position: relative;
@@ -158,7 +93,7 @@ footer p, a {
   color: #B20000;
 }
 
-/*Page résultat
+/*Page résultat*/
 img {
   margin-top: 100px;
 }
@@ -186,8 +121,8 @@ img {
   text-transform: uppercase;
 }
 
-/*Partie Mobile et Tablette
-@media screen and (max-width: 768px){
+/*Partie Mobile et Tablette*/
+@media screen and (max-width: 970px){
     footer{
         text-align: center;
     }
@@ -196,4 +131,61 @@ img {
         text-align: center;
         margin-top: -10px;
     }
+
+    .button
+    {
+      font-size: 20px;
+    }
+
+    h2
+    {
+      font-size: 20px;
+    }
+
+    h3
+    {
+      font-size: 15px;
+    }
+
+    .logo img
+    {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+      margin-top: 5px
+    }
+
+    .button:visited
+    {
+      color: white;
+      text-decoration: none;
+    }
+}
+
+/*      Paramètres version DESKTOP     */
+@media only screen and (min-width: 971px)
+{
+  .button
+  {
+    font-size: 30px;
+  }
+
+  .logo img
+  {
+    margin-bottom: 30px;
+    margin-top: 15px;
+  }
+
+  .button:hover
+  {
+    background-color: #a20000;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  .button:visited
+  {
+    color: white;
+    text-decoration: none;
+  }
 }
