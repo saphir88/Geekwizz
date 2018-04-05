@@ -167,6 +167,11 @@ footer p, footer a {
       color: white;
       text-decoration: none;
     }
+
+    .resultat {
+      font-size: 1.2em;
+    }
+
 }
 
 /*      Paramètres version DESKTOP     */
