@@ -73,10 +73,8 @@ body
   .button:visited
   {
     color: white;
-    background-color: #f30000;
     text-decoration: none;
   }
-
 }
 
 /*      Paramètres version DESKTOP     */
@@ -103,9 +101,10 @@ body
   .button:visited
   {
     color: white;
-    background-color: #f30000;
     text-decoration: none;
   }
+}
+
 /*Redimension général de la page
 html {
     height: 100%;
