@@ -119,9 +119,16 @@ body {
     padding: 0;
 }
 
-/*Footer
-footer{
-    position: absolute; bottom: 0; left: 0; right: 0;
+/*Footer*/
+footer {
+    height: 3vh;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .condition{
@@ -138,7 +145,10 @@ footer p, a {
     color: #424242;
 }
 
-/*Page mentions légales
+/*Page mentions légales*/
+.mentions{
+    margin-bottom: 5vh;
+}
 .mentions a {
   color: red;
 }
@@ -184,5 +194,6 @@ img {
 
     .condition {
         text-align: center;
+        margin-top: -10px;
     }
 }
