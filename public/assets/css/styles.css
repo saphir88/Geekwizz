@@ -1,12 +1,43 @@
-@font-face {
+
+@font-face
+{
   font-family: 'BebasNeue';
-  src: url('../font/BebasNeue-Regular.ttf');
+  src: url('../fonts/BebasNeue-Regular.ttf');
 }
 
-@font-face {
+@font-face
+{
   font-family: 'Oswald';
-  src: url('../font/Oswald-Regular.ttf');
+  src: url('../fonts/Oswald-Regular.ttf');
 }
+
+
+/* Modifier l'alignement vertical de la div .home */
+.home
+{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100vw;
+  min-width: 320px;
+  white-space: nowrap;
+}
+
+/*       Modifier le bouton "Challenge Nous"       */
+.button
+{
+  color: white;
+  background-color: #f30000;
+  border: none;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+}
+
+
 
 /*Redimension général de la page*/
 
@@ -15,22 +46,25 @@ html {
 }
 
 body {
-  background-color: black;
-  color: white;
-  position: relative;
-  min-height: 100%;
-  margin: 0;
-  padding: 0;
+    font-family: 'BebasNeue';
+    background-color: black;
+    color : white;
+    position: relative;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 /*Footer*/
-
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  font-family: 'Oswald';
+    height: 3vh;
+}
+
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .condition {
@@ -49,7 +83,9 @@ footer p, footer a {
 }
 
 /*Page mentions légales*/
-
+.mentions{
+    margin-bottom: 5vh;
+}
 .mentions a {
   color: red;
 }
@@ -72,6 +108,7 @@ footer p, footer a {
   font-size: 1.75em;
   font-family: 'BebasNeue';
   text-transform: uppercase;
+  margin-bottom: 5vh;
 }
 
 .vertical-center {
@@ -92,12 +129,70 @@ footer p, footer a {
 }
 
 /*Partie Mobile et Tablette*/
+@media screen and (max-width: 970px){
+    footer{
+        text-align: center;
+    }
 
-@media screen and (max-width: 768px) {
-  footer {
-    text-align: center;
+    .condition {
+        text-align: center;
+        margin-top: -10px;
+    }
+
+    .button
+    {
+      font-size: 20px;
+    }
+
+    h2
+    {
+      font-size: 20px;
+    }
+
+    h3
+    {
+      font-size: 15px;
+    }
+
+    .logo img
+    {
+      width: 200px;
+      height: auto;
+      margin-bottom: 20px;
+      margin-top: 5px
+    }
+
+    .button:visited
+    {
+      color: white;
+      text-decoration: none;
+    }
+}
+
+/*      Paramètres version DESKTOP     */
+@media only screen and (min-width: 971px)
+{
+  .button
+  {
+    font-size: 30px;
   }
-  .condition {
-    text-align: center;
+
+  .logo img
+  {
+    margin-bottom: 30px;
+    margin-top: 15px;
+  }
+
+  .button:hover
+  {
+    background-color: #a20000;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  .button:visited
+  {
+    color: white;
+    text-decoration: none;
   }
 }
