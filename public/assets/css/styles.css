@@ -1,12 +1,9 @@
-
-@font-face
-{
+@font-face {
   font-family: 'BebasNeue';
   src: url('../fonts/BebasNeue-Regular.ttf');
 }
 
-@font-face
-{
+@font-face {
   font-family: 'Oswald';
   src: url('../fonts/Oswald-Regular.ttf');
 }
@@ -393,9 +390,13 @@ footer
     color: whitesmoke;
     text-decoration: none;
   }
+<<<<<<< HEAD
 
   .button-path:visited
   {
+=======
+  .button:visited {
+>>>>>>> 082a9e8e912ee345e415f3d7f18ed3e1fa097318
     color: white;
     text-decoration: none;
   }
