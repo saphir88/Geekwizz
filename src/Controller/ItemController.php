@@ -52,6 +52,28 @@ class ItemController extends AbstractController
     }
 
     /**
+     * @return string
+     */
+    public function quizz()
+    {
+        $itemManager = new ItemManager();
+        $items = $itemManager->findAll();
+
+        return $this->twig->render('Item/quizz.html.twig', ['items' => $items]);
+    }
+
+    /**
+     * @return string
+     */
+    public function questions()
+    {
+        $itemManager = new ItemManager();
+        $items = $itemManager->findAll();
+
+        return $this->twig->render('Item/questions.html.twig', ['items' => $items]);
+    }
+
+    /**
      * @param $id
      * @return string
      */
