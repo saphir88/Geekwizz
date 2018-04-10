@@ -259,7 +259,7 @@ footer
 }
 
 /*---------------------------------INTRO PARTIE DROITE-------------------------*/
-/*       Modifier le bouton "Challenge Nous"        */
+/*       Modifier le bouton "COMMENCER"        */
 .button-path
 {
   color: white;
@@ -401,7 +401,7 @@ footer
 
 
 /*----------------QUESTIONS PARTIE DROITE---------------*/
-/*       Modifier le bouton "Challenge Nous"        */
+/*       Modifier le bouton "VALIDE"        */
 .button-valide
 {
   color: white;
@@ -513,3 +513,286 @@ footer
   }
 
 }
+
+/*---------------------------------MAIL PARTIE DROITE-------------------------*/
+/*       Modifier le bouton "ENVOYER"        */
+.envoyer-path
+{
+  color: white;
+  background-color: #f30000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+}
+
+/*      Paramètres version MOBILES/TABLETTES    */
+@media only screen and (max-width: 991px)
+{
+
+  .form-control
+  {
+    text-align: center;
+    width: 80%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+
+  .form-group
+  {
+    margin-bottom: 30px;
+  }
+
+  .mail-path h2
+  {
+    font-size: 20px;
+  }
+
+  .mail-path h3
+  {
+    display: none;
+  }
+
+  .description-mail
+  {
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: solid 2px #f30000;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .couverture-mail
+  {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .mail-path img
+  {
+    width: 100%;
+    height: auto;
+  }
+
+  .envoyer-path
+  {
+    font-size: 20px;
+  }
+
+  .envoyer-path:hover
+  {
+    background-color: #a20000;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  .envoyer-path:visited
+  {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+
+/*      Paramètres version DESKTOP     */
+@media only screen and (min-width: 991px)
+{
+
+  .form-control
+  {
+    text-align: center;
+    width: 60%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+  }
+
+  .form-group
+  {
+    margin-bottom: 30px;
+  }
+
+  .mail-path h2
+  {
+    font-size: 25px;
+  }
+
+  .mail-path h3
+  {
+    font-size: 20px;
+  }
+
+  .mail-path
+  {
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    padding-bottom: 30px;
+  }
+
+  .description-mail
+  {
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: solid 2px #f30000;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .couverture-mail
+  {
+    margin-right: 14%;
+    margin-left:14%;
+  }
+
+  .mail-path img
+  {
+    width: 100%;
+    height: auto;
+  }
+
+  .envoyer-path
+  {
+    font-size: 25px;
+  }
+
+  .envoyer-path:hover
+  {
+    background-color: #a20000;
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  .envoyer-path:visited
+  {
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+/*---------------------------------RESULTAT PARTIE DROITE-------------------------*/
+
+h2 span
+{
+  color: #f30000;
+}
+
+
+/*      Paramètres version MOBILES/TABLETTES    */
+@media only screen and (max-width: 991px)
+{
+  .resultat-path h2
+  {
+    font-size: 20px;
+  }
+
+  .resultat-path h3
+  {
+    display: none;
+  }
+
+  .description-resultat
+  {
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: solid 2px #f30000;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .couverture-resultat
+  {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+
+  .resultat-path img
+  {
+    width: 100%;
+    height: auto;
+  }
+
+  .image-resultat img
+  {
+    max-width: 40px;
+    height: auto;
+    margin: 8px;
+  }
+}
+
+
+/*      Paramètres version DESKTOP     */
+@media only screen and (min-width: 991px)
+{
+  .resultat-path h2
+  {
+    font-size: 25px;
+  }
+
+  .resultat-path h3
+  {
+    font-size: 20px;
+  }
+
+  .resultat-path
+  {
+    margin-top: 50vh;
+    transform: translateY(-50%);
+    padding-bottom: 30px;
+  }
+
+  .description-resultat
+  {
+    text-align: justify;
+    text-align-last: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: solid 2px #f30000;
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .couverture-resultat
+  {
+    margin-right: 14%;
+    margin-left:14%;
+  }
+
+  .resultat-path img
+  {
+    width: 100%;
+    height: auto;
+  }
+
+  .image-resultat img
+  {
+    max-width: 45px;
+    height: auto;
+    margin: 8px;
+  }
+}
+

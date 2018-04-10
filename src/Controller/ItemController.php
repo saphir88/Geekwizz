@@ -74,6 +74,17 @@ class ItemController extends AbstractController
     }
 
     /**
+     * @return string
+     */
+    public function mail()
+    {
+        $itemManager = new ItemManager();
+        $items = $itemManager->findAll();
+
+        return $this->twig->render('Item/mail.html.twig', ['items' => $items]);
+    }
+
+    /**
      * @param $id
      * @return string
      */
