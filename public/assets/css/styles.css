@@ -160,16 +160,7 @@ footer{
   font-size: 14px;
 }
 
-/* -------------------------Mention Légales---------------------------*/
 
-center{
-    margin-top: 2vh;
-  }
-
-center .logo{
-  width: 50vh;
-
-}
 
 .conditions a
 {
@@ -187,6 +178,21 @@ center .logo{
   color: #424242;
   text-decoration: none;
 }
+
+/* -------------------------Mention Légales---------------------------*/
+
+center{
+    margin-top: 2vh;
+  }
+
+center .logo{
+  width: 50vh;
+
+}
+ .mentions a{
+   color: red;
+ }
+
 
 /*      Paramètres version MOBILES/TABLETTES     */
 @media only screen and (max-width: 991px)
@@ -252,7 +258,7 @@ center .logo{
 
   .logo-path img
   {
-    width: 100%;
+    width: 50%;
     height: auto;
     margin-bottom: 20px;
     margin-top: 5px
@@ -448,6 +454,19 @@ center .logo{
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 3px;
+}
+
+/* Progress Barre */
+
+.progress-bar{
+    background: red;
+}
+
+.progress{
+    background: #424242;
+    height: 5px;
+    width: 50%;
+    margin-left: 25%;
 }
 
 /*      Paramètres version MOBILES/TABLETTES    */
