@@ -8,20 +8,33 @@
   src: url('../fonts/Oswald-Regular.ttf');
 }
 
+html { 
+    height: 100%; 
+} 
+
 body
 {
   font-family: 'BebasNeue';
   color: white;
   background: black;
+  position: relative; 
+  min-height: 100%; 
+  margin: 0; 
+  padding: 0;
+  
 }
+
+
 
 /* ---------------------------------------ACCUEIL---------------------------------------- */
 
 .home
 {
   text-align: center;
-  margin-top: 50vh;
-  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
   white-space: nowrap;
   min-width: 320px;
 }
@@ -64,7 +77,7 @@ body
 
   .logo img
   {
-    width: 200px;
+    width: 100%;
     height: auto;
     margin-bottom: 20px;
     margin-top: 5px
@@ -88,8 +101,16 @@ body
 /*      Paramètres version DESKTOP     */
 @media only screen and (min-width: 991px)
 {
+  .center{
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    transform: translate(50%, -50%);
+  }
+
   .home
   {
+    
     padding-bottom: 30px;
   }
 
@@ -100,6 +121,8 @@ body
 
   .logo img
   {
+    width: 100%;
+    height: auto;
     margin-bottom: 30px;
     margin-top: 15px;
   }
@@ -118,20 +141,34 @@ body
   }
 }
 
-/* ---------------------------------------FOOTER---------------------------------------- */
 
-footer
+
+/* ---------------------------------------FOOTER---------------------------------------- */
+footer{
+  height: 3vh; 
+}
+.footer
 {
+  
   font-family: 'Oswald';
   color: #424242;
-
+  position: absolute;
+  margin: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  
-  white-space: nowrap;
   font-size: 14px;
-  margin-top: 10px;
+}
+
+/* -------------------------Mention Légales---------------------------*/
+
+center{
+    margin-top: 2vh;
+  }
+
+center .logo{
+  width: 50vh;
+
 }
 
 .conditions a
@@ -154,6 +191,12 @@ footer
 /*      Paramètres version MOBILES/TABLETTES     */
 @media only screen and (max-width: 991px)
 {
+  
+  .mentions{
+    margin-left: 1vh;
+    margin-right: 1vh;
+    margin-bottom: 2vh;
+  }
   footer
   {
     text-align: center;
@@ -177,15 +220,6 @@ footer
 }
 
 
-/*      Paramètres footer visibilité     */
-@media only screen and (max-width: 400px)
-{
-  footer
-  {
-    position: relative;
-  }
-}
-
 /* ---------------------------------------LOGO QUIZZ---------------------------------------- */
 
 
@@ -193,6 +227,7 @@ footer
 {
   text-align: center;
   min-width: 320px;
+  
 }
 
 /*----------------LOGO PARTIE GAUCHE-----------------*/
@@ -217,7 +252,7 @@ footer
 
   .logo-path img
   {
-    width: 150px;
+    width: 100%;
     height: auto;
     margin-bottom: 20px;
     margin-top: 5px
@@ -242,9 +277,11 @@ footer
 
   .logo-path
   {
-    margin-top: 50vh;
-    transform: translateY(-50%);
-    padding-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+
   }
 
   .logo-path img
@@ -347,8 +384,8 @@ footer
 
   .question-path
   {
-    margin-top: 50vh;
-    transform: translateY(-50%);
+    /*margin-top: 50vh;
+    /*transform: translateY(-50%);*/
     padding-bottom: 30px;
   }
 
@@ -360,7 +397,7 @@ footer
     margin-bottom: 30px;
     margin-left: 15%;
     margin-right: 15%;
-    font-size: 18px;
+    font-size: 22px;
     text-transform: uppercase;
     border: solid 2px #f30000;
     padding: 20px;
@@ -465,8 +502,8 @@ footer
 
   .photo-path
   {
-    margin-top: 50vh;
-    transform: translateY(-50%);
+    /*margin-top: 50vh;
+    /*transform: translateY(-50%);*/
     padding-bottom: 30px;
   }
 
@@ -535,8 +572,7 @@ footer
   {
     text-align: center;
     width: 80%;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin-left: 10%;
     font-size: 20px;
   }
 
@@ -610,8 +646,8 @@ footer
   {
     text-align: center;
     width: 60%;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    margin-left: 20%;
+    /*transform: translateX(-50%);*/
     font-size: 20px;
   }
 
@@ -632,8 +668,8 @@ footer
 
   .mail-path
   {
-    margin-top: 50vh;
-    transform: translateY(-50%);
+    /*margin-top: 50vh;
+    /*transform: translateY(-50%);*/
     padding-bottom: 30px;
   }
 
@@ -645,7 +681,7 @@ footer
     margin-bottom: 30px;
     margin-left: 15%;
     margin-right: 15%;
-    font-size: 18px;
+    font-size: 22px;
     text-transform: uppercase;
     border: solid 2px #f30000;
     padding: 20px;
@@ -756,8 +792,8 @@ h2 span
 
   .resultat-path
   {
-    margin-top: 50vh;
-    transform: translateY(-50%);
+    /*margin-top: 50vh;
+    /*transform: translateY(-50%);*/
     padding-bottom: 30px;
   }
 
