@@ -12,12 +12,18 @@
                 </div>
                 <h2>Félicitations !</h2>
                 <p class="description-mail">Tu as terminé ce quizz ! Dernière étape, indique nous ton adresse mail pour recevoir le résultat du test et le partager</p>
-                <form>
+                <form action="/resultat">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="homer.simpson@springfield.com">
+                        <div>
+                            <input type="checkbox" id="cond_mention" name="cond-mention" value="cond_mention" required>
+                            <label for="cond_mention">J'accepte les conditions générales d'utilisation</label>
+                        </div>
+                        <br>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="homer.simpson@springfield.com" required>
+                        <br>
+                        <input type="submit" class="envoyer-path" value="ENVOYER">
                     </div>
                 </form>
-                <a class="envoyer-path" href="/resultat">ENVOYER</a>
             </div>
         </div>
     </div>
