@@ -124,14 +124,14 @@ footer
 {
   font-family: 'Oswald';
   color: #424242;
-  position: fixed;
-  bottom: 0px;
+
+  bottom: 0;
   left: 0;
   right: 0;
-  z-index: 5;
+  
   white-space: nowrap;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .conditions a
