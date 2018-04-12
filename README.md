@@ -2,6 +2,8 @@
 
 Deuxième projet de la Wild Code School.
 
+![alt text]( strasbourg_0218_php_Geekwizz/public/assets/images/logo.png )
+
 Le projet :
 
 Geekwizz, défini dans ce document comme “le client”, souhaite développer un site qui a pour objectif de recueillir des informations qualifiées sur une communauté Geek à partir d’un quizz.
