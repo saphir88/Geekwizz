@@ -2,7 +2,7 @@
 
 Deuxième projet de la Wild Code School.
 
-![alt text]( strasbourg_0218_php_Geekwizz/public/assets/images/logo.png )
+![alt text](https://github.com/m0rsak/strasbourg_0218_php_Geekwizz/blob/dev/public/assets/images/logo.png)
 
 Le projet :
 
