@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid quizz-path">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
+                {% include 'Item/logo.html.twig' %}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mail-path center">
+                <div class="couverture-mail">
+                    <p><img src="assets/images/homer.png"></p>
+                </div>
+                <h2>Félicitations !</h2>
+                <p class="description-mail">Tu as terminé ce quizz ! Dernière étape, indique nous ton adresse mail pour recevoir le résultat du test et le partager</p>
+                <form action="/resultat">
+                    <div class="form-group">
+                        <div>
+                            <input type="checkbox" id="cond_mention" name="cond-mention" value="cond_mention" required>
+                            <label for="cond_mention">J'accepte les <a href="/mentions">conditions générales d'utilisation</a></label>
+                        </div>
+                        <br>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="homer.simpson@springfield.com" required>
+                        <br>
+                        <input type="submit" style="border:0px" class="envoyer-path" value="ENVOYER">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

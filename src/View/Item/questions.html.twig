@@ -1,0 +1,98 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="container-fluid quizz-path">
+    <div class="row">
+
+        <!-- Pannel logo -->
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
+            {% include 'Item/logo.html.twig' %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 photo-path center">
+                {% for i in 1..10 %}
+                    {% if i == 1 %}
+                        <div class="question{{ i }}">
+                            <h2>1. Niveau Look, tu es plutôt :</h2>
+
+                            <div class="container-fluid gallerie">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <img src="assets/images/steeve.jpg">
+                                        <p>Steve Urkel</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <img src="assets/images/jon.jpg">
+                                        <p>Jon Snow</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <img src="assets/images/james.jpg">
+                                        <p>James Bond</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <img src="assets/images/sheldon.jpg">
+                                        <p>Sheldon Cooper</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar"  id="p" style="width:10%"></div>
+                            </div>
+                            <button class='hide{{ i }} button-path' onclick="newValue+=10;updateProgress(newValue)" style="border:0px">Afficher la question suivante</button>
+                        </div>
+                    {% endif %}
+                    {% if i == 10 %}
+                    <div class="question{{ i }}" style="display: none;">
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+
+                        <div class="progress">
+                            <div class="progress-bar" id="p"></div>
+                        </div>
+                        <a class="button-path" href="/mail">VALIDER</a>
+                    </div>
+                    {% else %}
+                    <div class="question{{ i }}" style="display: none;">
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        {{ i }} <br>
+                        <div class="progress">
+                            <div class="progress-bar" class="colorBarre" id="p"></div>
+                        </div>
+                        <button class='hide{{ i }} button-path' onclick="newValue+=10;updateProgress(newValue)" style="border:0px">Afficher la question suivante</button>
+                    </div>
+                    {% endif %}
+                    <script type="text/javascript">
+                        var progressBar = document.getElementById('p');
+                        var newValue=10;
+                        $("#p").addClass("progress-bar-red");
+
+                        function updateProgress(newValue) {
+                            newValue++;
+                            $(".progress-bar").css("width", newValue + "%");
+
+                        }
+
+                    </script>
+                    <script>
+                        $('.hide{{ i }}').click(function(){
+                            $('.question{{ i+1 }}').show();
+                            $('.question{{ i }}').hide();
+                        });
+                    </script>
+                {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # [strasbourg_0218_php_Geekwizz](https://github.com/m0rsak/strasbourg_0218_php_Geekwizz/)
 
 Deuxième projet de la Wild Code School.
@@ -18,5 +19,3 @@ Ce Projet a été créé par 3 élèves de la Wild Code School :
 * [Hery](https://github.com/Hery-Rs)
 * [Cyril](https://github.com/m0rsak)
 * [Thomas](https://github.com/saphir88/)
-
-
