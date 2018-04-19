@@ -13,12 +13,12 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Connection.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/Model/Connection.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="460">
-              <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -46,18 +46,18 @@
                   <point x="480.75" y="105.0" />
                   <point x="40.5" y="40.0" />
                 </edge>
-                <edge source="\Model\ItemManager" target="\Model\EntityManager">
-                  <point x="0.0" y="-40.0" />
-                  <point x="0.0" y="112.5" />
-                </edge>
                 <edge source="\Controller\ItemController" target="\Controller\AbstractController">
                   <point x="0.0" y="-87.5" />
                   <point x="343.0" y="105.0" />
                   <point x="399.75" y="105.0" />
                   <point x="-40.5" y="40.0" />
                 </edge>
+                <edge source="\Model\ItemManager" target="\Model\EntityManager">
+                  <point x="0.0" y="-40.0" />
+                  <point x="0.0" y="112.5" />
+                </edge>
               </edges>
-              <settings layout="Hierarchic Group" zoom="1.0" x="218.0" y="34.5" />
+              <settings layout="Hierarchic Group" zoom="0.7441860465116279" x="305.5" y="312.5" />
               <SelectedNodes>
                 <node>\Model\ItemManager</node>
               </SelectedNodes>
@@ -76,16 +76,52 @@
         <entry file="file://$PROJECT_DIR$/../src/Model/ItemManager.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="299">
-              <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EntityManager.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EntityManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../src/Model/EntityManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="368">
+              <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../app/db.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dispatcher.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../app/dispatcher.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ItemController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../src/Controller/ItemController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1840">
+              <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
             </state>
           </provider>
         </entry>
@@ -103,6 +139,7 @@
         <option value="$PROJECT_DIR$/src/View/Item/mail.html.twig" />
         <option value="$PROJECT_DIR$/src/View/Item/resultat.html.twig" />
         <option value="$PROJECT_DIR$/public/assets/css/styles.css" />
+        <option value="$PROJECT_DIR$/../.gitignore" />
       </list>
     </option>
   </component>
@@ -124,10 +161,10 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="5">
-    <option name="x" value="993" />
+  <component name="ProjectFrameBounds" extendedState="4">
+    <option name="x" value="767" />
     <option name="y" value="27" />
-    <option name="width" value="927" />
+    <option name="width" value="1153" />
     <option name="height" value="1053" />
   </component>
   <component name="ProjectView">
@@ -142,6 +179,11 @@
             <path>
               <item name="." type="b2602c69:ProjectViewProjectNode" />
               <item name="strasbourg_0218_php_Geekwizz" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="." type="b2602c69:ProjectViewProjectNode" />
+              <item name="strasbourg_0218_php_Geekwizz" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="." type="b2602c69:ProjectViewProjectNode" />
@@ -215,16 +257,18 @@
       <workItem from="1523351870084" duration="1188000" />
       <workItem from="1523358268101" duration="5563000" />
       <workItem from="1523605051920" duration="2504000" />
+      <workItem from="1524148344381" duration="819000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9255000" />
+    <option name="totallyTimeSpent" value="10074000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="993" y="25" width="927" height="1055" extended-state="4" />
+    <frame x="767" y="27" width="1153" height="1053" extended-state="4" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.201726" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16218561" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
@@ -252,11 +296,73 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../src/View/Item/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/../src/Model/Connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/View/layout.html.twig">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="uml://PHP/\Controller\AbstractController">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>PHP</ID>
+          <OriginalElement>\Controller\AbstractController</OriginalElement>
+          <nodes>
+            <node x="242.0" y="130.0">\Controller\ItemController</node>
+            <node x="17.5" y="275.0">\Model\ItemManager</node>
+            <node x="464.0" y="190.0">\Controller\AdminController</node>
+            <node x="0.0" y="0.0">\Model\EntityManager</node>
+            <node x="0.0" y="400.0">\Model\Connection</node>
+            <node x="359.25" y="0.0">\Controller\AbstractController</node>
+            <node x="207.0" y="400.0">\Model\Item</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="\Controller\AdminController" target="\Controller\AbstractController">
+              <point x="0.0" y="-27.5" />
+              <point x="537.5" y="105.0" />
+              <point x="480.75" y="105.0" />
+              <point x="40.5" y="40.0" />
+            </edge>
+            <edge source="\Controller\ItemController" target="\Controller\AbstractController">
+              <point x="0.0" y="-87.5" />
+              <point x="343.0" y="105.0" />
+              <point x="399.75" y="105.0" />
+              <point x="-40.5" y="40.0" />
+            </edge>
+            <edge source="\Model\ItemManager" target="\Model\EntityManager">
+              <point x="0.0" y="-40.0" />
+              <point x="0.0" y="112.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.7441860465116279" x="305.5" y="312.5" />
+          <SelectedNodes>
+            <node>\Model\ItemManager</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+            <Category>Constants</Category>
+            <Category>Constructors</Category>
+            <Category>Methods</Category>
+          </Categories>
+          <VISIBILITY>private</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/Model/ItemManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/Model/EntityManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/View/Item/quizz.html.twig">
       <provider selected="true" editor-type-id="text-editor">
@@ -269,20 +375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../app/dispatcher.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../src/Controller/ItemController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="88" column="21" lean-forward="true" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -317,9 +409,10 @@
           </nodes>
           <notes />
           <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="55.5" y="15.5" />
+          <settings layout="Hierarchic Group" zoom="1.0" x="56.0" y="16.0" />
           <SelectedNodes />
           <Categories />
+          <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
@@ -341,12 +434,10 @@
             <node>$PROJECT_DIR$/../src/Controller</node>
           </SelectedNodes>
           <Categories />
+          <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../public/index.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../src/Model/Item.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -358,7 +449,7 @@
     <entry file="file://$PROJECT_DIR$/../src/Model/Connection.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
-          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -384,18 +475,18 @@
               <point x="480.75" y="105.0" />
               <point x="40.5" y="40.0" />
             </edge>
-            <edge source="\Model\ItemManager" target="\Model\EntityManager">
-              <point x="0.0" y="-40.0" />
-              <point x="0.0" y="112.5" />
-            </edge>
             <edge source="\Controller\ItemController" target="\Controller\AbstractController">
               <point x="0.0" y="-87.5" />
               <point x="343.0" y="105.0" />
               <point x="399.75" y="105.0" />
               <point x="-40.5" y="40.0" />
             </edge>
+            <edge source="\Model\ItemManager" target="\Model\EntityManager">
+              <point x="0.0" y="-40.0" />
+              <point x="0.0" y="112.5" />
+            </edge>
           </edges>
-          <settings layout="Hierarchic Group" zoom="1.0" x="218.0" y="34.5" />
+          <settings layout="Hierarchic Group" zoom="0.7441860465116279" x="305.5" y="312.5" />
           <SelectedNodes>
             <node>\Model\ItemManager</node>
           </SelectedNodes>
@@ -409,17 +500,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/Model/ItemManager.php">
+    <entry file="file://$PROJECT_DIR$/../src/Model/EntityManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="18" column="20" lean-forward="true" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        <state relative-caret-position="368">
+          <caret line="21" column="26" lean-forward="true" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../src/Model/EntityManager.php">
+    <entry file="file://$PROJECT_DIR$/../app/dispatcher.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="330">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/Controller/ItemController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../src/Model/ItemManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../app/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
