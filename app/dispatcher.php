@@ -8,17 +8,13 @@
 
 
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-    $r->addRoute('GET', '/', 'Item/index');
-    // {id} must be a number (\d+)
-    $r->addRoute('GET', '/item/{id:\d+}', 'Item/show');
-    $r->addRoute('GET', '/item/add', 'Item/add');
-    $r->addRoute('GET', '/item/edit/{id:\d+}', 'Item/edit');
+    $r->addRoute('GET', '/', 'Question/index');
     $r->addRoute('GET', '/admin', 'Admin/index');
-    $r->addRoute('GET', '/mentions', 'Item/mentions_legales');
-    $r->addRoute('GET', '/resultat', 'Item/resultat');
-    $r->addRoute('GET', '/quizz', 'Item/quizz');
-    $r->addRoute('GET', '/questions', 'Item/questions');
-    $r->addRoute('GET', '/mail', 'Item/mail');
+    $r->addRoute('GET', '/mentions', 'Question/mentions_legales');
+    $r->addRoute('GET', '/resultat', 'Question/resultat');
+    $r->addRoute('GET', '/quizz', 'Question/quizz');
+    $r->addRoute('GET', '/questions', 'Question/questions');
+    $r->addRoute('GET', '/mail', 'Question/mail');
 });
 
 // Fetch method and URI from somewhere
