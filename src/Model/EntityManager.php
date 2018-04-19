@@ -44,6 +44,21 @@ abstract class EntityManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
+
+
+
+
+    public function findQuizz()
+    {
+        return $this->conn->query("SELECT titre,Resp.reponse,Resp.image FROM $this->table AS Quest JOIN R_Pertinentes AS Resp ON Quest.id=Resp.id_q_pertinentes", \PDO::FETCH_ASSOC)->fetchAll();
+    }
+
+/*  select titre, Resp.reponse, Resp.image from Q_Pertinentes AS Quest RIGHT JOIN R_Pertinentes AS Resp ON Quest.id = Resp.id_q_pertinentes;      */
+
+
+
+
+
     /**
      *
      */

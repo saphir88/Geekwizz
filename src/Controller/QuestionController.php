@@ -8,14 +8,14 @@
 
 namespace Controller;
 
-use Model\Item;
-use Model\ItemManager;
+use Model\Question;
+use Model\QuestionManager;
 
 /**
  * Class ItemController
  * @package Controller
  */
-class ItemController extends AbstractController
+class QuestionController extends AbstractController
 {
 
     /**
@@ -23,8 +23,8 @@ class ItemController extends AbstractController
      */
     public function index()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->findAll();
+        $QuestionManager = new QuestionManager();
+        $items = $QuestionManager->findAll();
 
         return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
@@ -34,8 +34,8 @@ class ItemController extends AbstractController
      */
     public function mentions_legales()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->findAll();
+        $QuestionManager = new QuestionManager();
+        $items = $QuestionManager->findAll();
 
         return $this->twig->render('Item/mentions_legales.html.twig', ['items' => $items]);
     }
@@ -45,8 +45,8 @@ class ItemController extends AbstractController
      */
     public function resultat()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->findAll();
+        $QuestionManager = new QuestionManager();
+        $items = $QuestionManager->findAll();
 
         return $this->twig->render('Item/resultat.html.twig', ['items' => $items]);
     }
@@ -56,8 +56,8 @@ class ItemController extends AbstractController
      */
     public function quizz()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->findAll();
+        $QuestionManager = new QuestionManager();
+        $items = $QuestionManager->findAll();
 
         return $this->twig->render('Item/quizz.html.twig', ['items' => $items]);
     }
@@ -67,10 +67,9 @@ class ItemController extends AbstractController
      */
     public function questions()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->findAll();
-
-        return $this->twig->render('Item/questions.html.twig', ['items' => $items]);
+        $QuestionManager = new QuestionManager();
+        $Questions = $QuestionManager->findQuizz();
+        return $this->twig->render('Item/questions.html.twig', ['Questions' => $Questions]);
     }
 
     /**
@@ -78,8 +77,8 @@ class ItemController extends AbstractController
      */
     public function mail()
     {
-        $itemManager = new ItemManager();
-        $items = $itemManager->findAll();
+        $QuestionManager = new QuestionManager();
+        $items = $QuestionManager->findAll();
 
         return $this->twig->render('Item/mail.html.twig', ['items' => $items]);
     }

@@ -9,14 +9,16 @@
 namespace Model;
 
 
-class ItemManager extends EntityManager
+class QuestionManager extends EntityManager
 {
-    const TABLE = 'items';
+    const TABLE = 'Q_Pertinentes';
 
 
     public function __construct()
     {
         parent::__construct(self::TABLE);
     }
+
+
 
 }
