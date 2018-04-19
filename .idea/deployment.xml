@@ -2,10 +2,18 @@
 <project version="4">
   <component name="PublishConfigData">
     <serverData>
+<<<<<<< HEAD
       <paths name="localhost">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$/.." web="/" />
+=======
+      <paths name="Flyaround">
+        <serverdata>
+          <mappings>
+            <mapping local="$USER_HOME$/Documents/MVC _wcs/hardcore_MVC" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+>>>>>>> 17141be01edb0db491021de3f163fbbe618fc200
           </mappings>
         </serverdata>
       </paths>
