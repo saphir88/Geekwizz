@@ -12,11 +12,12 @@ namespace Model;
  * Class Item
  * @package Model
  */
-class Item
+class Question
 {
     private $id;
 
     private $title;
+
 
     /**
      * @return mixed
