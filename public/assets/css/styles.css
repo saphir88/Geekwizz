@@ -661,6 +661,11 @@ center .logo{
 @media only screen and (min-width: 991px)
 {
 
+  .form-group a{
+    color: white;
+    text-decoration: underline;
+  }
+
   .form-control
   {
     text-align: center;
