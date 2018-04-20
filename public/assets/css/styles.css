@@ -856,3 +856,27 @@ h2 span
   }
 }
 
+/*--------------------------------LOGIN-------------------------*/
+.form-signin-heading
+{
+  font-size: 30px;
+}
+
+.form-signin button
+{
+  margin-top: 30px;
+}
+
+.form-signin input
+{
+  margin-top: 5px;
+}
+
+.form-signin .btn
+{
+  background: #f30000;
+  border: none;
+}
+
+
+

@@ -10,6 +10,7 @@
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'Question/index');
     $r->addRoute('GET', '/admin', 'Admin/index');
+    $r->addRoute('GET', '/login', 'Question/login');
     $r->addRoute('GET', '/mentions', 'Question/mentions_legales');
     $r->addRoute('GET', '/resultat', 'Question/resultat');
     $r->addRoute('GET', '/quizz', 'Question/quizz');

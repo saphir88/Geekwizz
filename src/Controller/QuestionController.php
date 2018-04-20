@@ -82,4 +82,15 @@ class QuestionController extends AbstractController
 
         return $this->twig->render('Item/mail.html.twig', ['items' => $items]);
     }
+
+    /**
+     * @return string
+     */
+    public function login()
+    {
+        $QuestionManager = new QuestionManager();
+        $items = $QuestionManager->findAll();
+
+        return $this->twig->render('Item/login.html.twig', ['items' => $items]);
+    }
 }
