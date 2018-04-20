@@ -10,6 +10,7 @@ namespace Controller;
 
 use Model\Question;
 use Model\QuestionManager;
+use Model\ReponsePManager;
 
 /**
  * Class ItemController
@@ -68,8 +69,8 @@ class QuestionController extends AbstractController
     public function questions()
     {
         $QuestionManager = new QuestionManager();
-        $Questions = $QuestionManager->findQuizz();
-        return $this->twig->render('Item/questions.html.twig', ['Questions' => $Questions]);
+        $Quizz = $QuestionManager->findQuizz();
+        return $this->twig->render('Item/questions.html.twig', ['Quizz' => $Quizz]);
     }
 
     /**

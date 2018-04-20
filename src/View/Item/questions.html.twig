@@ -9,28 +9,29 @@
             {% include 'Item/logo.html.twig' %}
         </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 photo-path center">
-                {% for i in 1..10 %}
-                    {% if i == 1 %}
+
+                {% for i,quizz in Quizz %}
+                    {% if i == 0 %}
                         <div class="question{{ i }}">
-                            <h2>{{ i }}. Niveau Look, tu es plutôt :</h2>
+                            <h2>{{ quizz.id }}. {{ quizz.titre }}</h2>
 
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="assets/images/steeve.jpg">
-                                        <p>Steve Urkel</p>
+                                        <img src="{{ quizz.image1 }}">
+                                        <p>{{ quizz.reponse1 }}</p>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="assets/images/jon.jpg">
-                                        <p>Jon Snow</p>
+                                        <img src="{{ quizz.image2 }}">
+                                        <p>{{ quizz.reponse2 }}</p>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="assets/images/james.jpg">
-                                        <p>James Bond</p>
+                                        <img src="{{ quizz.image3 }}">
+                                        <p>{{ quizz.reponse3 }}</p>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="assets/images/sheldon.jpg">
-                                        <p>Sheldon Cooper</p>
+                                        <img src="{{ quizz.image4 }}">
+                                        <p>{{ quizz.reponse4 }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -40,27 +41,27 @@
                             <button class='hide{{ i }} button-path' onclick="newValue+=10;updateProgress(newValue)" style="border:0px">Afficher la question suivante</button>
                         </div>
                     {% endif %}
-                    {% if i == 10 %}
+                    {% if i == 9 %}
                     <div class="question{{ i }}" style="display: none;">
-                        <h2>{{ i }}. Niveau Look, tu es plutôt :</h2>
+                        <h2>{{ quizz.id }}. {{ quizz.titre }}</h2>
 
                         <div class="container-fluid gallerie">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/steeve.jpg">
-                                    <p>Steve Urkel{{ i }}</p>
+                                    <img src="{{ quizz.image1 }}">
+                                    <p>{{ quizz.reponse1 }}</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/jon.jpg">
-                                    <p>Jon Snow{{ i }}</p>
+                                    <img src="{{ quizz.image2 }}">
+                                    <p>{{ quizz.reponse2 }}</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/james.jpg">
-                                    <p>James Bond{{ i }}</p>
+                                    <img src="{{ quizz.image3 }}">
+                                    <p>{{ quizz.reponse3 }}</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/sheldon.jpg">
-                                    <p>Sheldon Cooper{{ i }}</p>
+                                    <img src="{{ quizz.image4 }}">
+                                    <p>{{ quizz.reponse4 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -72,25 +73,25 @@
                     </div>
                     {% else %}
                     <div class="question{{ i }}" style="display: none;">
-                        <h2>{{ i }}. Niveau Look, tu es plutôt :</h2>
+                        <h2>{{ quizz.id }}. {{ quizz.titre }}</h2>
 
                         <div class="container-fluid gallerie">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/steeve.jpg">
-                                    <p>Steve Urkel{{ i }}</p>
+                                    <img src="{{ quizz.image1 }}">
+                                    <p>{{ quizz.reponse1 }}</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/jon.jpg">
-                                    <p>Jon Snow{{ i }}</p>
+                                    <img src="{{ quizz.image2 }}">
+                                    <p>{{ quizz.reponse2 }}</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/james.jpg">
-                                    <p>James Bond{{ i }}</p>
+                                    <img src="{{ quizz.image3 }}">
+                                    <p>{{ quizz.reponse3 }}</p>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="assets/images/sheldon.jpg">
-                                    <p>Sheldon Cooper{{ i }}</p>
+                                    <img src="{{ quizz.image4 }}">
+                                    <p>{{ quizz.reponse4 }}</p>
                                 </div>
                             </div>
                         </div>
@@ -123,6 +124,14 @@
                 {% endfor %}
         </div>
     </div>
+
+     {#  {% for quizz in Quizz %}
+            {{ quizz.titre }} : {{ quizz.reponse1 }},
+            {{ quizz.reponse2 }}, {{ quizz.reponse3 }}, {{ quizz.reponse4 }}<br><br>
+        {endfor %}
+
+       {{ dump(Quizz) }}#}
+
 </div>
 
 {% endblock %}

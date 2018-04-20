@@ -9,16 +9,15 @@
 namespace Model;
 
 
-class QuestionManager extends EntityManager
+class ReponsePManager extends EntityManager
 {
-    const TABLE = 'Quizz';
+    const TABLE = 'R_Pertinentes';
 
 
     public function __construct()
     {
         parent::__construct(self::TABLE);
     }
-
 
 
 }
