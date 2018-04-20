@@ -1,20 +1,21 @@
-# Simple MVC
+<<<<<<< HEAD
+# [strasbourg_0218_php_Geekwizz](https://github.com/m0rsak/strasbourg_0218_php_Geekwizz/)
 
-## Description
+Deuxième projet de la Wild Code School.
 
-This repository is a simple PHP MVC structure from scratch.
+![alt text](https://github.com/m0rsak/strasbourg_0218_php_Geekwizz/blob/dev/public/assets/images/logo.png)
 
-It uses some cool vendors/libraries such as FastRouter (fast request php router), Twig and PHP_CodeSniffer soon. 
-For this one, just a simple example where users can chose one of their databases and see tables in it.
+Le projet :
 
-## Steps
+Geekwizz, défini dans ce document comme “le client”, souhaite développer un site qui a pour objectif de recueillir des informations qualifiées sur une communauté Geek à partir d’un quizz.
 
-1. Clone the repos from Github.
-2. Run `composer install`.
-3. Configure app/db.php with your DB parameters.
-4. Go to public/ directory and run a server on index.php with `php -S localhost:8000`.
-5. Test on your localhost default URL : `localhost:8000`.
-6. From this starter kit, create your own web application.
+Les types de projet:
+Un site vitrine de quelques pages, avec une interface d’administration simple et adaptée aux besoins du client (par ex : création d’un article, gestion d’un formulaire de contact…)
+ 
+Nous travaillons en méthodologies agiles ce qui requiert des rendez vous réguliers avec le clients (toutes les 1-2 semaines)
 
 
-03/07/2018 @wildcodeschool.fr
+Ce Projet a été créé par 3 élèves de la Wild Code School :
+* [Hery](https://github.com/Hery-Rs)
+* [Cyril](https://github.com/m0rsak)
+* [Thomas](https://github.com/saphir88/)
