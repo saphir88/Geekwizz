@@ -9,7 +9,7 @@
 namespace Model;
 
 
-class QuestionManager extends EntityManager
+class QuestionPManager extends EntityManager
 {
     const TABLE = 'Quizz';
 
@@ -18,7 +18,6 @@ class QuestionManager extends EntityManager
     {
         parent::__construct(self::TABLE);
     }
-
 
 
 }

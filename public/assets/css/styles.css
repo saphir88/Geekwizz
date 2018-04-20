@@ -492,7 +492,7 @@ center .logo{
   .gallerie img
   {
     width: 100%;
-    height: auto;
+    height: 23vh;
   }
 
   .button-valide
@@ -547,7 +547,7 @@ center .logo{
   .gallerie img
   {
     width: 100%;
-    height: auto;
+    height: 23vh;
   }
 
   .button-valide
@@ -855,4 +855,28 @@ h2 span
     margin: 8px;
   }
 }
+
+/*--------------------------------LOGIN-------------------------*/
+.form-signin-heading
+{
+  font-size: 30px;
+}
+
+.form-signin button
+{
+  margin-top: 30px;
+}
+
+.form-signin input
+{
+  margin-top: 5px;
+}
+
+.form-signin .btn
+{
+  background: #f30000;
+  border: none;
+}
+
+
 
