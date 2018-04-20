@@ -1,1 +1,125 @@
-Bonjour je suis dans le twig de l'admin
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/css/stylesadmin.css">
+    <link rel="icon" href="assets/images/favicon.png">
+</head>
+
+<body>
+<div class="container-fluid">
+    <h2>Nombre de questions par quizz :</h2>
+    <table>
+        <tbody>
+            <tr>
+                <td><input type="text" value="10" disabled></td>
+                <td>
+                    <button type="submit" class="modifier" value="">Modifier</button>
+                    <button type="submit" class="valider" value="" disabled>Valider</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
+    <div class="container-fluid">
+        <h2>Base de données des questions :</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Réponse liée à Superman</th>
+                    <th>Réponse liée à Batman</th>
+                    <th>Réponse liée à Supergirl</th>
+                    <th>Réponse liée à Catwoman</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><input type="text" value="Qui es-tu ?" disabled></td>
+                    <td><div><input type="text" value="test1" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="test2" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="test3" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="test4" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td>
+                        <button type="submit" class="modifier" value="">Modifier</button><br><br>
+                        <button type="submit" class="valider" value="" disabled>Valider</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><input type="text" value="Que manges-tu le plus souvent ?" disabled></td>
+                    <td><div><input type="text" value="test1" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="test2" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="test3" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="test4" disabled></div>
+                        <div>aperçu image</div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td>
+                        <button type="submit" class="modifier" value="">Modifier</button><br><br>
+                        <button type="submit" class="valider" value="" disabled>Valider</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form action="/addQuestionAdmin" method="POST">
+            <input type="submit" class="ajouter" value="Ajouter une Question"></input>
+        </form>
+    </div>
+
+<script>
+    $('.modifier').on("click" , function(){
+        $(this).parents('tr').find('input').prop("disabled", false);
+        $(this).parents('tr').find('.valider').prop("disabled", false);
+        $(this).prop("disabled", true);
+    });
+
+    $('.valider').on("click" , function(){
+        $(this).parents('tr').find('input').prop("disabled", true);
+        $(this).parents('tr').find('.modifier').prop("disabled", false);
+        $(this).prop("disabled", true);
+    });
+</script>
+</body>
+
+</html>
