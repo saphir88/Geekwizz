@@ -22,22 +22,26 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <h2>Nombre de questions par quizz :</h2>
-    <table>
-        <tbody>
-            <tr>
-                <td><input type="text" value="10" disabled></td>
-                <td>
-                    <button type="submit" class="modifier" value="">Modifier</button>
-                    <button type="submit" class="valider" value="" disabled>Valider</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-
-</div>
+    <div class="container-fluid">
+        <h2>Exporter la base de données en .svg :</h2>
+        <form action="/exportsvg" method="POST">
+            <input type="submit" value="Exporter la BDD en .svg">
+        </form>
+    </div>
+    <div class="container-fluid">
+        <h2>Nombre de questions par quizz :</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td><input type="text" value="10" disabled></td>
+                    <td>
+                        <button type="submit" class="modifier" value="">Modifier</button>
+                        <button type="submit" class="valider" value="" disabled>Valider</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <div class="container-fluid">
         <h2>Base de données des questions :</h2>
         <table class="table table-bordered">
