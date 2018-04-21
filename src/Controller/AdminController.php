@@ -14,4 +14,9 @@ class AdminController extends AbstractController
     {
         return $this->twig->render('Admin/index.html.twig');
     }
+
+    public function addQuestionAdmin()
+    {
+        return header('Location:/admin');
+    }
 }
