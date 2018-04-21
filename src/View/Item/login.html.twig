@@ -9,7 +9,7 @@
                     <form class="form-signin" action="/postlogin" method="POST">
                         <h2 class="form-signin-heading">Administration</h2>
                         <input type="text" class="form-control" name="username" placeholder="Pseudo" required=""/>
-                        <input type="text" class="form-control" name="password" placeholder="********" required=""/>
+                        <input type="password" class="form-control" name="password" placeholder="********" required=""/>
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
                         {% for error in errors %}
                             <div class="row">
