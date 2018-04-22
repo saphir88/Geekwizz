@@ -491,8 +491,8 @@ center .logo{
 
     .gallerie img
     {
-        width: 100%;
-        height: auto;
+        width: 23vh;
+        height: 23vh;
     }
 
     .button-valide
@@ -547,7 +547,7 @@ center .logo{
     .gallerie img
     {
         width: 100%;
-        height: auto;
+        height: 25vh;
     }
 
     .button-valide
