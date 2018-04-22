@@ -22,6 +22,8 @@
 </head>
 
 <body>
+
+
 <div class="container-fluid">
     <h2>Nombre de questions par quizz :</h2>
     <table>
@@ -52,23 +54,47 @@
                 </tr>
             </thead>
             <tbody>
+            {% set number= 1 %}
+            {% for i,quizz in Quizz %}
+                {% if i < 2 %}
                 <tr>
-                    <td>1</td>
-                    <td><input type="text" value="Qui es-tu ?" disabled></td>
-                    <td><div><input type="text" value="test1" disabled></div>
-                        <div>aperçu image</div>
+                    <td>{{ number }}</td>
+                    <td><input type="text" value="{{ quizz.titre }}" disabled></td>
+                    <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
+                        <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
                         <div><input type="file" disabled></div>
                     </td>
-                    <td><div><input type="text" value="test2" disabled></div>
-                        <div>aperçu image</div>
+                    <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
+                        <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
                         <div><input type="file" disabled></div>
                     </td>
-                    <td><div><input type="text" value="test3" disabled></div>
-                        <div>aperçu image</div>
+                    <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
+                        <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
                         <div><input type="file" disabled></div>
                     </td>
-                    <td><div><input type="text" value="test4" disabled></div>
-                        <div>aperçu image</div>
+                    <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
+                        <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td>{{ number }}</td>
+                    <td><input type="text" value="{{ quizz.titre }}" disabled></td>
+                    <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
+                        <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
+                        <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
+                        <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
+                        <div><input type="file" disabled></div>
+                    </td>
+                    <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
+                        <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
                         <div><input type="file" disabled></div>
                     </td>
                     <td>
@@ -76,35 +102,51 @@
                         <button type="submit" class="valider" value="" disabled>Valider</button>
                     </td>
                 </tr>
+                    {% endif %}
+                {% set number = number +1 %}
+            {% endfor %}
+            </tbody>
+        </table>
+<br>
+        <h3>Ajouter une question :</h3>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Question</th>
+                <th>Réponse liée à Superman</th>
+                <th>Réponse liée à Batman</th>
+                <th>Réponse liée à Supergirl</th>
+                <th>Réponse liée à Catwoman</th>
+            </tr>
+            </thead>
+            <tbody>
                 <tr>
-                    <td>2</td>
-                    <td><input type="text" value="Que manges-tu le plus souvent ?" disabled></td>
-                    <td><div><input type="text" value="test1" disabled></div>
-                        <div>aperçu image</div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="test2" disabled></div>
-                        <div>aperçu image</div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="test3" disabled></div>
-                        <div>aperçu image</div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="test4" disabled></div>
-                        <div>aperçu image</div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td>
-                        <button type="submit" class="modifier" value="">Modifier</button><br><br>
-                        <button type="submit" class="valider" value="" disabled>Valider</button>
-                    </td>
+                    <form action="/addQuestionAdmin" method="POST">
+                        <td><input type="text" name="titre" value="" required></td>
+                        <td><div><input type="text" name="resp1" value="" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp2" value="" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp3" value="" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp4" value="" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" ></div>
+                        </td>
+                        <td>
+                            <br>
+                            <input type="submit" value="Valider" />
+                        </td>
+                    </form>
                 </tr>
             </tbody>
         </table>
-        <form action="/addQuestionAdmin" method="POST">
-            <input type="submit" class="ajouter" value="Ajouter une Question"></input>
-        </form>
     </div>
 
 <script>
@@ -119,6 +161,8 @@
         $(this).parents('tr').find('.modifier').prop("disabled", false);
         $(this).prop("disabled", true);
     });
+
+
 </script>
 </body>
 
