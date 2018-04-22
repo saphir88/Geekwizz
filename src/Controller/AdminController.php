@@ -4,6 +4,7 @@ namespace Controller;
 use Model\ConfigManager;
 use Model\SauvegardeManager;
 
+use Model\QuestionManager;
 /**
  * Created by PhpStorm.
  * User: root
@@ -13,15 +14,46 @@ use Model\SauvegardeManager;
 class AdminController extends AbstractController
 {
     protected $introduction;
+    public $titre;
+    public $Resp1;
+    public $Resp2;
+    public $Resp3;
+    public $Resp4;
+    public $Img1;
+    public $Img2;
+    public $Img3;
+    public $Img4;
 
     public function index()
     {
-        return $this->twig->render('Admin/index.html.twig');
+        $QuestionManager = new QuestionManager();
+        $Quizz = $QuestionManager->findQuizz();
+
+        return $this->twig->render('Admin/index.html.twig', ['Quizz' => $Quizz]);
     }
 
     public function addQuestionAdmin()
     {
-        return header('Location:/admin');
+
+       if (isset($_POST['titre']) && isset($_POST['resp1']) && isset($_POST['resp2']) && isset($_POST['resp3']) && isset($_POST['resp4'])) {
+            $titre = $_POST['titre'];
+            $Resp1 = $_POST['resp1'];
+            $Resp2 = $_POST['resp2'];
+            $Resp3 = $_POST['resp3'];
+            $Resp4 = $_POST['resp4'];
+
+
+            $QuestionManager = new QuestionManager();
+            $QuestionManager->insert($titre, $Resp1, $Resp2, $Resp3, $Resp4);
+
+           header("location:/admin");
+
+       }else {
+
+           header("location:/admin");
+
+        }
+
     }
 
     public function exportsvg()
@@ -35,6 +67,7 @@ class AdminController extends AbstractController
             echo "\n".'"'.$value['id'].'";"'.$value['mail'].'";"'.$value['genre'].'";"'.$value['tranche_age'].'"';
         }
     }
+
     public function introQuizz()
     {
         $ConfigManager = new ConfigManager();
