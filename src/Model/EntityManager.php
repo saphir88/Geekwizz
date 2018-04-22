@@ -54,10 +54,10 @@ abstract class EntityManager
 
 /*  select titre, Resp.reponse, Resp.image from Q_Pertinentes AS Quest RIGHT JOIN R_Pertinentes AS Resp ON Quest.id = Resp.id_q_pertinentes;      */
 
-    public function findReponse()
+    /*public function findReponse()
     {
         return $this->conn->query('SELECT * FROM ' . $this->table, \PDO::FETCH_ASSOC)->fetchAll();
-    }
+    }*/
 
 
 
@@ -72,9 +72,22 @@ abstract class EntityManager
     /**
      *
      */
-    public function insert($data)
+    public function insert($titre, $Resp1, $Resp2, $Resp3, $Resp4, $Img1, $Img2, $Img3, $Img4)
     {
-        //TODO : Implements SQL INSERT request
+
+            $statement = $this->conn->prepare("INSERT INTO $this->table(titre, reponse1, reponse2, reponse3, reponse4, image1, image2, image3, image4) VALUES (:titre, :reponse1, :reponse2, :reponse3, :reponse4, :image1, :image2, :image3, :image4)");
+
+            $statement->bindValue(':titre', $titre, \PDO::PARAM_STR);
+            $statement->bindValue(':reponse1', $Resp1, \PDO::PARAM_STR);
+            $statement->bindValue(':reponse2', $Resp2, \PDO::PARAM_STR);
+            $statement->bindValue(':reponse3', $Resp3, \PDO::PARAM_STR);
+            $statement->bindValue(':reponse4', $Resp4, \PDO::PARAM_STR);
+            $statement->bindValue(':image1', $Img1, \PDO::PARAM_STR);
+            $statement->bindValue(':image2', $Img2, \PDO::PARAM_STR);
+            $statement->bindValue(':image3', $Img3, \PDO::PARAM_STR);
+            $statement->bindValue(':image4', $Img4, \PDO::PARAM_STR);
+            $statement->execute();
+
     }
 
 
