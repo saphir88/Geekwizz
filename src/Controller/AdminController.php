@@ -32,4 +32,10 @@ class AdminController extends AbstractController
             echo "\n".'"'.$value['id'].'";"'.$value['mail'].'";"'.$value['genre'].'";"'.$value['tranche_age'].'"';
         }
     }
+
+    public function modifIntro()
+    {
+        $intro = $_POST['intro'];
+        return $intro;
+    }
 }

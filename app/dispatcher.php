@@ -19,6 +19,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/mail', 'Question/mail');
     $r->addRoute('POST', '/addQuestionAdmin', 'Admin/addQuestionAdmin');
     $r->addRoute('POST', '/exportsvg', 'Admin/exportsvg');
+    $r->addRoute('POST', '/modifIntro', 'Admin/modifIntro');
 
 });
 

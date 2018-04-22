@@ -23,6 +23,24 @@
 
 <body>
     <div class="container-fluid">
+        <h2>Modifier le contenu de la page d'introduction au Quizz:</h2>
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <form action="/modifIntro" method="POST" id="formintro">
+                        <textarea name="intro" disabled></textarea>
+                    </form>
+                </td>
+                <td>
+                    <button class="modifier">Modifier</button>
+                    <input type="submit" form="formintro" value="Valider">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid">
         <h2>Exporter la base de données en .svg :</h2>
         <form action="/exportsvg" method="POST">
             <input type="submit" value="Exporter la BDD en .svg">
@@ -114,12 +132,14 @@
 <script>
     $('.modifier').on("click" , function(){
         $(this).parents('tr').find('input').prop("disabled", false);
+        $(this).parents('tr').find('textarea').prop("disabled", false);
         $(this).parents('tr').find('.valider').prop("disabled", false);
         $(this).prop("disabled", true);
     });
 
     $('.valider').on("click" , function(){
         $(this).parents('tr').find('input').prop("disabled", true);
+        $(this).parents('tr').find('textarea').prop("disabled", true);
         $(this).parents('tr').find('.modifier').prop("disabled", false);
         $(this).prop("disabled", true);
     });
