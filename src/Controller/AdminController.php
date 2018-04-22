@@ -26,10 +26,18 @@ class AdminController extends AbstractController
 
     public function index()
     {
-        $QuestionManager = new QuestionManager();
-        $Quizz = $QuestionManager->findQuizz();
+        //session_start();
+        //if(isset($_SESSION['username'])) {
+            $QuestionManager = new QuestionManager();
+            $Quizz = $QuestionManager->findQuizz();
 
-        return $this->twig->render('Admin/index.html.twig', ['Quizz' => $Quizz]);
+            $ConfigManager = new ConfigManager();
+            $intro[] = $ConfigManager->findOneById(1);
+            $introduction = $intro[0]["value"];
+            return $this->twig->render('Admin/index.html.twig', ['Quizz' => $Quizz, 'introduction' => $introduction]);
+        //}else{
+        //    header('location:/login');
+        //}
     }
 
     public function addQuestionAdmin()
@@ -41,10 +49,14 @@ class AdminController extends AbstractController
             $Resp2 = $_POST['resp2'];
             $Resp3 = $_POST['resp3'];
             $Resp4 = $_POST['resp4'];
+            $Image1 ='aucune image pour le moment';
+            $Image2 ='aucune image pour le moment';
+            $Image3 ='aucune image pour le moment';
+            $Image4 ='aucune image pour le moment';
 
 
             $QuestionManager = new QuestionManager();
-            $QuestionManager->insert($titre, $Resp1, $Resp2, $Resp3, $Resp4);
+            $QuestionManager->insert($titre, $Resp1, $Resp2, $Resp3, $Resp4, $Image1, $Image2, $Image3, $Image4);
 
            header("location:/admin");
 
@@ -78,10 +90,13 @@ class AdminController extends AbstractController
 
     public function modifIntro()
     {
-        $newintro = $_POST['intro'];
+        /*$newintro = 'value='.$_POST['intro'];
         var_dump($newintro);
         $ConfigManager= new ConfigManager();
-        $newintro[] = $ConfigManager->update(1, $newintro);
+        $ConfigManager->update(1, $newintro);
+        header('location:/admin');*/
+
+        //Tu veux savoir quel est ton profil geek ? À quelle tendance tu appartiens ? C'est simple ! Répond à ce test en moins de 2 minutes et nous te dirons qui tu es. À la fin du test partage ton résultat et défie tes amis.
 
     }
 }
