@@ -1,6 +1,7 @@
 <?php
 
 namespace Controller;
+use Model\ConfigManager;
 use Model\SauvegardeManager;
 
 /**
@@ -11,6 +12,8 @@ use Model\SauvegardeManager;
  */
 class AdminController extends AbstractController
 {
+    protected $introduction;
+
     public function index()
     {
         return $this->twig->render('Admin/index.html.twig');
@@ -32,10 +35,20 @@ class AdminController extends AbstractController
             echo "\n".'"'.$value['id'].'";"'.$value['mail'].'";"'.$value['genre'].'";"'.$value['tranche_age'].'"';
         }
     }
+    public function introQuizz()
+    {
+        $ConfigManager = new ConfigManager();
+        $intro[] = $ConfigManager->findOneById(1);
+        $introduction = $intro[0]["value"];
+        return $this->twig->render("Item/quizz.html.twig", ['introduction' => $introduction]);
+    }
 
     public function modifIntro()
     {
-        $intro = $_POST['intro'];
-        return $intro;
+        $newintro = $_POST['intro'];
+        var_dump($newintro);
+        $ConfigManager= new ConfigManager();
+        $newintro[] = $ConfigManager->update(1, $newintro);
+
     }
 }
