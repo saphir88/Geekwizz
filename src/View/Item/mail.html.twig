@@ -12,17 +12,22 @@
                 </div>
                 <h2>Félicitations !</h2>
                 <p class="description-mail">Tu as terminé ce quizz ! Dernière étape, indique nous ton adresse mail pour recevoir le résultat du test et le partager</p>
-                <form action="/resultat">
+                <form action="/validateMail" method="POST">
                     <div class="form-group">
                         <div>
-                            <input type="checkbox" id="cond_mention" name="cond-mention" value="cond_mention" required>
+                            <input type="checkbox"  name="cond-mention" id="cond_mention" value="cond_mention" required>
                             <label for="cond_mention">J'accepte les <a href="/mentions">conditions générales d'utilisation</a></label>
                         </div>
                         <br>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="homer.simpson@springfield.com" required>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="homer.simpson@springfield.com" required>
                         <br>
-                        <input type="submit" style="border:0px" class="envoyer-path" value="ENVOYER">
+                        <input type="submit" name="envoyer" class="envoyer-path" value="envoyer">
                     </div>
+                    {% for error in errors %}
+                        <div class="row">
+                            <div class="alert alert-danger alerte_erreur">{{ error }}</div>
+                        </div>
+                    {% endfor %}
                 </form>
             </div>
         </div>
