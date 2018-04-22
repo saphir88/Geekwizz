@@ -68,6 +68,7 @@ class QuestionController extends AbstractController
      */
     public function questions()
     {
+        //récupération de la base de données pour la création du quizz
         $QuestionManager = new QuestionManager();
         $Quizz = $QuestionManager->findQuizz();
         return $this->twig->render('Item/questions.html.twig', ['Quizz' => $Quizz]);

@@ -20,6 +20,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/validateMail', 'Mail/validateMail');
     $r->addRoute('GET', '/sendMail', 'Mail/sendMail');
     $r->addRoute('POST', '/addQuestionAdmin', 'Admin/addQuestionAdmin');
+    $r->addRoute('POST', '/exportsvg', 'Admin/exportsvg');
+
 });
 
 // Fetch method and URI from somewhere

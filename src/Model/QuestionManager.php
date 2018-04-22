@@ -8,6 +8,7 @@
 
 namespace Model;
 
+//Connection a la table "Quizz" en base de données
 
 class QuestionManager extends EntityManager
 {

@@ -4,6 +4,8 @@
 <div class="container-fluid quizz-path">
     <div class="row">
 
+            {#---------------------------------affichage des questions---------------------------------#}
+
         <!-- Pannel logo -->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
             {% include 'Item/logo.html.twig' %}
@@ -35,6 +37,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {#barre de progression avec incrément à chaque tour#}
                             <div class="progress">
                                 <div class="progress-bar"  id="p" style="width:10%"></div>
                             </div>
