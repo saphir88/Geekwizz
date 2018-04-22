@@ -72,17 +72,4 @@ class QuestionController extends AbstractController
         $Quizz = $QuestionManager->findQuizz();
         return $this->twig->render('Item/questions.html.twig', ['Quizz' => $Quizz]);
     }
-
-    /**
-     * @return string
-     */
-    public function mail()
-    {
-        $QuestionManager = new QuestionManager();
-        $items = $QuestionManager->findAll();
-
-        return $this->twig->render('Item/mail.html.twig');
-    }
-
-
 }
