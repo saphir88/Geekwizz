@@ -574,13 +574,14 @@ center .logo{
 /*       Modifier le bouton "ENVOYER"        */
 .envoyer-path
 {
-    color: white;
-    background-color: #f30000;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 3px;
+  color: white;
+  background-color: #f30000;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  border: none;
 }
 
 /*      Paramètres version MOBILES/TABLETTES    */
