@@ -99,5 +99,19 @@ abstract class EntityManager
         //TODO : Implements SQL UPDATE request
     }
 
+    /**
+     *
+     */
+    public function insertToken($validation, $mail, $genre, $tranche_age)
+    {
+        $statement = $this->conn->prepare("INSERT INTO $this->table(validation, mail, genre, tranche_age) VALUES (:validation, :mail, :genre, :tranche_age)");
+
+        $statement->bindValue(':validation', $validation, \PDO::PARAM_STR);
+        $statement->bindValue(':mail', $mail, \PDO::PARAM_STR);
+        $statement->bindValue(':genre', $genre, \PDO::PARAM_STR);
+        $statement->bindValue(':tranche_age', $tranche_age, \PDO::PARAM_STR);
+        $statement->execute();
+    }
+
 
 }
