@@ -94,11 +94,16 @@ abstract class EntityManager
 
 
     /**
-     *
+     * @param $id
+     * @param $data
      */
     public function update($id, $data)
     {
-        //TODO : Implements SQL UPDATE request
+        foreach($data as $key => $value) {
+            $statement = $this->conn->prepare("UPDATE $this->table SET $key = \"$value\" WHERE id=:id");
+            $statement->bindValue('id', $id, \PDO::PARAM_INT);
+            $statement->execute();
+        }
     }
 
 
