@@ -94,6 +94,25 @@ class AdminController extends AbstractController
             $newintro['reponse2'] = $_POST['resp2'];
             $newintro['reponse3'] = $_POST['resp3'];
             $newintro['reponse4'] = $_POST['resp4'];
+            $Image1 = $_FILES['file1'];
+            $Image2 = $_FILES['file2'];
+            $Image3 = $_FILES['file3'];
+            $Image4 = $_FILES['file4'];
+            var_dump($_FILES['file1']);
+            $destImage1= "assets/images/img_quizz/image".uniqid();
+            move_uploaded_file($Image1['tmp_name'], $destImage1);
+            $destImage2= "assets/images/img_quizz/image".uniqid();
+            move_uploaded_file($Image2['tmp_name'], $destImage2);
+            $destImage3= "assets/images/img_quizz/image".uniqid();
+            move_uploaded_file($Image3['tmp_name'], $destImage3);
+            $destImage4= "assets/images/img_quizz/image".uniqid();
+            move_uploaded_file($Image4['tmp_name'], $destImage4);
+
+            $newintro['image1'] = $destImage1;
+            $newintro['image2'] = $destImage2;
+            $newintro['image3'] = $destImage3;
+            $newintro['image4'] = $destImage4;
+
             $ConfigManager= new QuestionManager();
             $ConfigManager->update($id, $newintro);
             header("location:/admin");
