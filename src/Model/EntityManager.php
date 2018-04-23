@@ -64,9 +64,11 @@ abstract class EntityManager
     /**
      *
      */
-    public function delete($id)
+    public function deleteQuest($id)
     {
-        //TODO : Implements SQL DELETE request
+            $statement = $this->conn->prepare("DELETE FROM $this->table WHERE id = :id ");
+            $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+            $statement->execute();
     }
 
     /**
