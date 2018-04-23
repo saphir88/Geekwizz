@@ -71,6 +71,12 @@ abstract class EntityManager
             $statement->execute();
     }
 
+    public function updateQuest(){
+
+        
+    }
+
+
     /**
      *
      */

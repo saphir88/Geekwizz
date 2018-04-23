@@ -69,6 +69,9 @@ class AdminController extends AbstractController
     }
 
     public function gestionQuest(){
+
+
+
         if (isset($_POST['supprimer'])){
             $id = $_POST['id'];
 
@@ -76,6 +79,12 @@ class AdminController extends AbstractController
             $QuestionManager->deleteQuest($id);
 
             header("location:/admin");            
+        }
+        if (isset($_POST['valider'])){
+            $id = $_POST['id'];
+
+            var_dump($_POST);
+
         }
 
 

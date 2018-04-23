@@ -76,7 +76,7 @@
                 </tr>
             </thead>
             <tbody>
-            <form action="/gestionQuest" method="POST">
+
             {% set number= 1 %}
             {% for i,quizz in Quizz %}
                 {% if i < 2 %}
@@ -85,52 +85,52 @@
                     <td><input type="text" value="{{ quizz.titre }}" disabled></td>
                     <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
                         <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
                     </td>
                     <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
                         <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
+
                     </td>
                     <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
                         <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
+
                     </td>
                     <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
                         <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
+
                     </td>
                 </tr>
                 {% else %}
-                <tr>
-                    <td>{{ number }}</td>
-                    <input type="hidden" name="id" value="{{ quizz.id }}">
-                    <td><input type="text" value="{{ quizz.titre }}" disabled></td>
-                    <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
-                        <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
-                        <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
-                        <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
-                        <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td>
-                        <button type="button" class="modifier" value="">Modifier</button><br><br>
-                        <input type="submit"  name="supprimer" value="Supprimer la question">
-                        <button type="submit" class="valider" value="" disabled>Valider</button>
-                    </td>
-                </tr>
+                <form action="/gestionQuest" method="POST">
+                    <tr>
+                        <td>{{ number }}</td>
+                        <input type="hidden" name="id" value="{{ quizz.id }}">
+                        <td><input type="text" value="{{ quizz.titre }}" disabled></td>
+                        <td><div><input type="text" name="resp1" value="{{ quizz.reponse1 }}" ></div>
+                            <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
+                            <div><input type="file"></div>
+                        </td>
+                        <td><div><input type="text" name="resp2" value="{{ quizz.reponse2 }}" ></div>
+                            <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
+                            <div><input type="file"></div>
+                        </td>
+                        <td><div><input type="text" name="resp3" value="{{ quizz.reponse3 }}" ></div>
+                            <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
+                            <div><input type="file"></div>
+                        </td>
+                        <td><div><input type="text" name="resp4" value="{{ quizz.reponse4 }}" ></div>
+                            <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
+                            <div><input type="file"></div>
+                        </td>
+                        <td>
+                            <input type="submit"  name="supprimer" value="Supprimer la question"><br><hr>
+                            <input type="submit"  name="valider" class="valider" value="Valider">
+                        </td>
+                    </tr>
+                </form>
                     {% endif %}
                 {% set number = number +1 %}
             {% endfor %}
-            </form>
+
             </tbody>
         </table>
 <br>
