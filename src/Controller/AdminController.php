@@ -104,7 +104,7 @@ class AdminController extends AbstractController
 
     public function introQuizz()
     {
-        $ConfigManager = new ConfigManager()
+        $ConfigManager = new ConfigManager();
         $intro[] = $ConfigManager->findOneById(1);
         $introduction = $intro[0]["value"];
         return $this->twig->render("Item/quizz.html.twig", ['introduction' => $introduction]);
