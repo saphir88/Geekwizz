@@ -43,20 +43,28 @@ class AdminController extends AbstractController
     public function addQuestionAdmin()
     {
 
-       if (isset($_POST['titre']) && isset($_POST['resp1']) && isset($_POST['resp2']) && isset($_POST['resp3']) && isset($_POST['resp4'])) {
-            $titre = $_POST['titre'];
-            $Resp1 = $_POST['resp1'];
-            $Resp2 = $_POST['resp2'];
-            $Resp3 = $_POST['resp3'];
-            $Resp4 = $_POST['resp4'];
-            $Image1 ='aucune image pour le moment';
-            $Image2 ='aucune image pour le moment';
-            $Image3 ='aucune image pour le moment';
-            $Image4 ='aucune image pour le moment';
+       if (isset($_POST['titre']) && isset($_POST['resp1']) && isset($_POST['resp2']) && isset($_POST['resp3']) && isset($_POST['resp4']) && $_FILES['file1']['name']!='' && $_FILES['file2']['name']!='' && $_FILES['file3']['name']!='' && $_FILES['file4']['name']!='') {
+           $titre = $_POST['titre'];
+           $Resp1 = $_POST['resp1'];
+           $Resp2 = $_POST['resp2'];
+           $Resp3 = $_POST['resp3'];
+           $Resp4 = $_POST['resp4'];
+           $Image1 = $_FILES['file1'];
+           $Image2 = $_FILES['file2'];
+           $Image3 = $_FILES['file3'];
+           $Image4 = $_FILES['file4'];
+           var_dump($_FILES['file1']);
+           $destImage1= "assets/images/img_quizz/image".uniqid();
+           move_uploaded_file($Image1['tmp_name'], $destImage1);
+           $destImage2= "assets/images/img_quizz/image".uniqid();
+           move_uploaded_file($Image2['tmp_name'], $destImage2);
+           $destImage3= "assets/images/img_quizz/image".uniqid();
+           move_uploaded_file($Image3['tmp_name'], $destImage3);
+           $destImage4= "assets/images/img_quizz/image".uniqid();
+           move_uploaded_file($Image4['tmp_name'], $destImage4);
 
-
-            $QuestionManager = new QuestionManager();
-            $QuestionManager->insert($titre, $Resp1, $Resp2, $Resp3, $Resp4, $Image1, $Image2, $Image3, $Image4);
+           $QuestionManager = new QuestionManager();
+           $QuestionManager->insert($titre, $Resp1, $Resp2, $Resp3, $Resp4, $destImage1, $destImage2, $destImage3, $destImage4);
 
            header("location:/admin");
 
@@ -96,7 +104,7 @@ class AdminController extends AbstractController
 
     public function introQuizz()
     {
-        $ConfigManager = new ConfigManager();
+        $ConfigManager = new ConfigManager()
         $intro[] = $ConfigManager->findOneById(1);
         $introduction = $intro[0]["value"];
         return $this->twig->render("Item/quizz.html.twig", ['introduction' => $introduction]);
