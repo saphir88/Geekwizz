@@ -90,13 +90,13 @@ class AdminController extends AbstractController
 
     public function modifIntro()
     {
-        /*$newintro = 'value='.$_POST['intro'];
+        $newintro['value'] = $_POST['intro'];
         var_dump($newintro);
         $ConfigManager= new ConfigManager();
         $ConfigManager->update(1, $newintro);
-        header('location:/admin');*/
+        header('location:/admin');
 
-        //Tu veux savoir quel est ton profil geek ? À quelle tendance tu appartiens ? C'est simple ! Répond à ce test en moins de 2 minutes et nous te dirons qui tu es. À la fin du test partage ton résultat et défie tes amis.
+        //Valeur de base de l'intro : Tu veux savoir quel est ton profil geek ? À quelle tendance tu appartiens ? C'est simple ! Répond à ce test en moins de 2 minutes et nous te dirons qui tu es. À la fin du test partage ton résultat et défie tes amis.
 
     }
 }
