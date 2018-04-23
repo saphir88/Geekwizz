@@ -70,21 +70,25 @@ class AdminController extends AbstractController
 
     public function gestionQuest(){
 
-
+            var_dump($_POST);
 
         if (isset($_POST['supprimer'])){
             $id = $_POST['id'];
-
             $QuestionManager = new QuestionManager();
             $QuestionManager->deleteQuest($id);
 
             header("location:/admin");            
         }
-        if (isset($_POST['valider'])){
-            $id = $_POST['id'];
-
+        if (isset($_POST['modifier'])){
             var_dump($_POST);
-
+            $id = $_POST['id'];
+            $newintro['reponse1'] = $_POST['resp1'];
+            $newintro['reponse2'] = $_POST['resp2'];
+            $newintro['reponse3'] = $_POST['resp3'];
+            $newintro['reponse4'] = $_POST['resp4'];
+            $ConfigManager= new QuestionManager();
+            $ConfigManager->update($id, $newintro);
+            header("location:/admin");
         }
 
 
