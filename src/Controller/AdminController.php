@@ -76,6 +76,8 @@ class AdminController extends AbstractController
             $QuestionManager->deleteQuest($id);
 
             header("location:/admin");            
+        }elseif (isset($_POST['modifier'])){
+
         }
 
 
