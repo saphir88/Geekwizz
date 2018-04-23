@@ -2,6 +2,7 @@
 
 namespace Controller;
 
+use Model\TokenManager;
 /**
  * Created by PhpStorm.
  * User: root
@@ -19,6 +20,12 @@ class MailController extends AbstractController
 
     public function validateMail()
     {
+        /* Temporaire -> importer les infos de la BDD */
+        $validation = 1;
+        $genre = "male";
+        $tranche_age= "12-24";
+        /* Temporaire -> importer les infos de la BDD */
+
         if(isset($_POST['envoyer'])) {
             $mail = $_POST['email'];// Déclaration de l'adresse de destination.
 
@@ -120,6 +127,9 @@ class MailController extends AbstractController
             $header .= "Content-type:text/html; charset=UTF-8";
 
             if (isset($_POST['cond-mention']) && isset($_POST['email']) && !empty($_POST['cond-mention']) && !empty($_POST['email'])){
+                $TokenManager = new TokenManager();
+                /* Temporaire -> importer les infos de la BDD */
+                $TokenManager->insertToken($validation, $mail, $genre, $tranche_age);
                 mail($mail,$sujet,$message,$header);
                 header("location:/");
             } elseif (!isset($_POST['cond-mention']) || !empty($_POST['cond-mention'])) {
