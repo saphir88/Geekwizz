@@ -73,7 +73,9 @@ abstract class EntityManager
 
     public function updateQuest(){
 
-        
+        $statement = $this->conn->prepare("UPDATE $this->table SET  WHERE id=:id");
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
     }
 
 
