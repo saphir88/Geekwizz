@@ -30,7 +30,7 @@
             <tr>
                 <td>
                     <form action="/modifIntro" method="POST" id="formintro">
-                        <textarea name="intro" disabled>{{ introduction }}</textarea>
+                        <textarea name="intro" rows="5" cols="50" disabled>{{ introduction }}</textarea>
                     </form>
                 </td>
                 <td>
@@ -147,23 +147,23 @@
             </thead>
             <tbody>
                 <tr>
-                    <form action="/addQuestionAdmin" method="POST">
+                    <form action="/addQuestionAdmin" method="POST" enctype="multipart/form-data">
                         <td><input type="text" name="titre" value="" required></td>
                         <td><div><input type="text" name="resp1" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file1" name="file1" ></div>
                         </td>
                         <td><div><input type="text" name="resp2" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file2" name="file2" ></div>
                         </td>
                         <td><div><input type="text" name="resp3" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file3" name="file3" ></div>
                         </td>
                         <td><div><input type="text" name="resp4" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file4" name="file4" ></div>
                         </td>
                         <td>
                             <br>
