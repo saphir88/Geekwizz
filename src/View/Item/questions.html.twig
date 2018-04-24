@@ -12,7 +12,7 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 photo-path center">
                 <form action="/mail" method="POST">
-                    {% set number= 1 %}
+                    {% set number = 1 %}
                     {% for i,quizz in Quizz %}
                         {% if i == 0 %}
                         <div class="question{{ i }}">
@@ -20,7 +20,7 @@
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="inf20" checked <!--c'est ici que ça plante--> />
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="inf20"  />
                                         <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
                                             <p>{{ quizz.reponse1 }}</p></label>
                                     </div>
@@ -55,7 +55,7 @@
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="homme" checked />
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="homme" />
                                         <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
                                             <p>{{ quizz.reponse1 }}</p></label>
                                     </div>
@@ -87,7 +87,7 @@
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="profil-1" checked />
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="profil-1" />
                                         <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
                                             <p>{{ quizz.reponse1 }}</p></label>
                                     </div>
@@ -126,6 +126,7 @@
                             }
                         </script>
                         <script>
+                            document.getElementById("{{ i }}radio-choice-1").checked = true;
                             $('.hide{{ i }}').click(function(){
                                 $('.question{{ i+1 }}').show();
                                 $('.question{{ i }}').hide();
