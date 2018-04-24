@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 # [strasbourg_0218_php_Geekwizz](https://github.com/m0rsak/strasbourg_0218_php_Geekwizz/)
 
-Deuxième projet de la Wild Code School.
+Second projet de la Wild Code School.
 
 ![alt text](https://github.com/m0rsak/strasbourg_0218_php_Geekwizz/blob/dev/public/assets/images/logo.png)
 
