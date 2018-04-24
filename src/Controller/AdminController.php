@@ -53,14 +53,13 @@ class AdminController extends AbstractController
            $Image2 = $_FILES['file2'];
            $Image3 = $_FILES['file3'];
            $Image4 = $_FILES['file4'];
-           var_dump($_FILES['file1']);
-           $destImage1= "assets/images/img_quizz/image".uniqid();
+           $destImage1= "assets/images/img_quizz/".$_FILES['file1']['name'];
            move_uploaded_file($Image1['tmp_name'], $destImage1);
-           $destImage2= "assets/images/img_quizz/image".uniqid();
+           $destImage2= "assets/images/img_quizz/".$_FILES['file2']['name'];
            move_uploaded_file($Image2['tmp_name'], $destImage2);
-           $destImage3= "assets/images/img_quizz/image".uniqid();
+           $destImage3= "assets/images/img_quizz/".$_FILES['file3']['name'];
            move_uploaded_file($Image3['tmp_name'], $destImage3);
-           $destImage4= "assets/images/img_quizz/image".uniqid();
+           $destImage4= "assets/images/img_quizz/".$_FILES['file4']['name'];
            move_uploaded_file($Image4['tmp_name'], $destImage4);
 
            $QuestionManager = new QuestionManager();
@@ -78,8 +77,6 @@ class AdminController extends AbstractController
 
     public function gestionQuest(){
 
-            var_dump($_POST);
-
         if (isset($_POST['supprimer'])){
             $id = $_POST['id'];
             $QuestionManager = new QuestionManager();
@@ -88,25 +85,43 @@ class AdminController extends AbstractController
             header("location:/admin");            
         }
         if (isset($_POST['modifier'])){
-            var_dump($_POST);
             $id = $_POST['id'];
             $newintro['reponse1'] = $_POST['resp1'];
             $newintro['reponse2'] = $_POST['resp2'];
             $newintro['reponse3'] = $_POST['resp3'];
             $newintro['reponse4'] = $_POST['resp4'];
-            $Image1 = $_FILES['file1'];
-            $Image2 = $_FILES['file2'];
-            $Image3 = $_FILES['file3'];
-            $Image4 = $_FILES['file4'];
-            var_dump($_FILES['file1']);
-            $destImage1= "assets/images/img_quizz/image".uniqid();
-            move_uploaded_file($Image1['tmp_name'], $destImage1);
-            $destImage2= "assets/images/img_quizz/image".uniqid();
-            move_uploaded_file($Image2['tmp_name'], $destImage2);
-            $destImage3= "assets/images/img_quizz/image".uniqid();
-            move_uploaded_file($Image3['tmp_name'], $destImage3);
-            $destImage4= "assets/images/img_quizz/image".uniqid();
-            move_uploaded_file($Image4['tmp_name'], $destImage4);
+
+            if(!empty($_FILES['file1']['name'])) {
+                $Image1 = $_FILES['file1'];
+                $destImage1= "assets/images/img_quizz/".$_FILES['file1']['name'];
+                move_uploaded_file($Image1['tmp_name'], $destImage1);
+            } else {
+                $destImage1=$_POST['img_old_1'];
+            }
+
+            if(!empty($_FILES['file2']['name'])) {
+                $Image2 = $_FILES['file1'];
+                $destImage2= "assets/images/img_quizz/".$_FILES['file2']['name'];
+                move_uploaded_file($Image2['tmp_name'], $destImage2);
+            } else {
+                $destImage2=$_POST['img_old_2'];
+            }
+
+            if(!empty($_FILES['file3']['name'])) {
+                $Image3 = $_FILES['file1'];
+                $destImage3= "assets/images/img_quizz/".$_FILES['file3']['name'];
+                move_uploaded_file($Image3['tmp_name'], $destImage3);
+            } else {
+                $destImage3=$_POST['img_old_3'];
+            }
+
+            if(!empty($_FILES['file4']['name'])) {
+                $Image4 = $_FILES['file1'];
+                $destImage4= "assets/images/img_quizz/".$_FILES['file4']['name'];
+                move_uploaded_file($Image4['tmp_name'], $destImage4);
+            } else {
+                $destImage4=$_POST['img_old_4'];
+            }
 
             $newintro['image1'] = $destImage1;
             $newintro['image2'] = $destImage2;
