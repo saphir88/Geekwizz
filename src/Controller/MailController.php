@@ -52,12 +52,12 @@ class MailController extends AbstractController
 
     public function validateMail()
     {
-        /* Temporaire -> importer les infos de la BDD */
+
         $validation = 0;
         $genre = $_POST['genre'];
         $tranche_age= $_POST['age'];
         $id_resultat= substr($_POST['profil'], -1);
-        /* Temporaire -> importer les infos de la BDD */
+
 
         if(isset($_POST['envoyer'])) {
             $mail = $_POST['email'];// Déclaration de l'adresse de destination.
