@@ -20,7 +20,7 @@
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="inf20" />
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="inf20" checked <!--c'est ici que ça plante--> />
                                         <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
                                             <p>{{ quizz.reponse1 }}</p></label>
                                     </div>
@@ -55,7 +55,7 @@
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="homme" />
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="homme" checked />
                                         <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
                                             <p>{{ quizz.reponse1 }}</p></label>
                                     </div>
@@ -87,7 +87,7 @@
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="profil-1" />
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="profil-1" checked />
                                         <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
                                             <p>{{ quizz.reponse1 }}</p></label>
                                     </div>
