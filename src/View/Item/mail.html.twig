@@ -21,6 +21,9 @@
                         <br>
                         <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="homer.simpson@springfield.com" required>
                         <br>
+                        <input type="hidden" name="age" class="form-control" value="{{ age }}">
+                        <input type="hidden" name="profil" class="form-control" value="{{ profil }}">
+                        <input type="hidden" name="genre" class="form-control" value="{{ genre }}">
                         <input type="submit" name="envoyer" class="envoyer-path" value="envoyer">
                     </div>
                     {% for error in errors %}

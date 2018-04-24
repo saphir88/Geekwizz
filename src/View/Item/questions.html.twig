@@ -1,142 +1,142 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="container-fluid quizz-path">
-    <div class="row">
+    <div class="container-fluid quizz-path">
+        <div class="row">
 
             {#---------------------------------affichage des questions---------------------------------#}
 
-        <!-- Pannel logo -->
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
-            {% include 'Item/logo.html.twig' %}
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 photo-path center">
-
-                {% set number= 1 %}
-                {% for i,quizz in Quizz %}
-                    {% if i == 0 %}
+            <!-- Pannel logo -->
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
+                {% include 'Item/logo.html.twig' %}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 photo-path center">
+                <form action="/mail" method="POST">
+                    {% set number= 1 %}
+                    {% for i,quizz in Quizz %}
+                        {% if i == 0 %}
                         <div class="question{{ i }}">
                             <h2>{{ number }}. {{ quizz.titre }}</h2>
-
                             <div class="container-fluid gallerie">
                                 <div class="row">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="{{ quizz.image1 }}">
-                                        <p>{{ quizz.reponse1 }}</p>
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="inf20" />
+                                        <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
+                                            <p>{{ quizz.reponse1 }}</p></label>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="{{ quizz.image2 }}">
-                                        <p>{{ quizz.reponse2 }}</p>
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-2" value="sup20" />
+                                        <label for="{{ i }}radio-choice-2"><img src="{{ quizz.image2 }}">
+                                            <p>{{ quizz.reponse2 }}</p></label>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="{{ quizz.image3 }}">
-                                        <p>{{ quizz.reponse3 }}</p>
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-3" value="inf20" />
+                                        <label for="{{ i }}radio-choice-3"><img src="{{ quizz.image3 }}">
+                                            <p>{{ quizz.reponse3 }}</p></label>
                                     </div>
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                        <img src="{{ quizz.image4 }}">
-                                        <p>{{ quizz.reponse4 }}</p>
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-4" value="sup20" />
+                                        <label for="{{ i }}radio-choice-4"><img src="{{ quizz.image4 }}">
+                                            <p>{{ quizz.reponse4 }}</p></label>
                                     </div>
                                 </div>
                             </div>
-                            {#barre de progression avec incrément à chaque tour#}
+
                             <div class="progress">
                                 <div class="progress-bar"  id="p" style="width:10%"></div>
                             </div>
-                            <button class='hide{{ i }} button-path' onclick="newValue+=10;updateProgress(newValue)" style="border:0px">Afficher la question suivante</button>
-                        </div>
-                    {% endif %}
-                    {% if i == 9 %}
-                    <div class="question{{ i }}" style="display: none;">
-                        <h2>{{ number }}. {{ quizz.titre }}</h2>
 
-                        <div class="container-fluid gallerie">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image1 }}">
-                                    <p>{{ quizz.reponse1 }}</p>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image2 }}">
-                                    <p>{{ quizz.reponse2 }}</p>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image3 }}">
-                                    <p>{{ quizz.reponse3 }}</p>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image4 }}">
-                                    <p>{{ quizz.reponse4 }}</p>
+                            <button type="button" class='hide{{ i }} button-path' onclick="newValue+=10;updateProgress(newValue)" style="border:0px">Afficher la question suivante</button>
+                        </div>
+                        {% endif %}
+                        {% if i == 9 %}
+                        <div class="question{{ i }}" style="display: none;">
+                            <h2>{{ number }}. {{ quizz.titre }}</h2>
+                            <div class="container-fluid gallerie">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="homme" />
+                                        <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
+                                            <p>{{ quizz.reponse1 }}</p></label>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-2" value="femme" />
+                                        <label for="{{ i }}radio-choice-2"><img src="{{ quizz.image2 }}">
+                                            <p>{{ quizz.reponse2 }}</p></label>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-3" value="homme" />
+                                        <label for="{{ i }}radio-choice-3"><img src="{{ quizz.image3 }}">
+                                            <p>{{ quizz.reponse3 }}</p></label>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-4" value="femme" />
+                                        <label for="{{ i }}radio-choice-4"><img src="{{ quizz.image4 }}">
+                                            <p>{{ quizz.reponse4 }}</p></label>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="progress">
+                                <div class="progress-bar" id="p"></div>
+                            </div>
+                            <input type="submit" value="VALIDER">
                         </div>
-
-                        <div class="progress">
-                            <div class="progress-bar" id="p"></div>
-                        </div>
-                        <a class="button-path" href="/mail">VALIDER</a>
-                    </div>
-                    {% else %}
-                    <div class="question{{ i }}" style="display: none;">
-                        <h2>{{ number }}. {{ quizz.titre }}</h2>
-
-                        <div class="container-fluid gallerie">
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image1 }}">
-                                    <p>{{ quizz.reponse1 }}</p>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image2 }}">
-                                    <p>{{ quizz.reponse2 }}</p>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image3 }}">
-                                    <p>{{ quizz.reponse3 }}</p>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                    <img src="{{ quizz.image4 }}">
-                                    <p>{{ quizz.reponse4 }}</p>
+                        {% else %}
+                        <div class="question{{ i }}" style="display: none;">
+                            <h2>{{ number }}. {{ quizz.titre }}</h2>
+                            <div class="container-fluid gallerie">
+                                <div class="row">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-1" value="profil-1" />
+                                        <label for="{{ i }}radio-choice-1"><img src="{{ quizz.image1 }}">
+                                            <p>{{ quizz.reponse1 }}</p></label>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-2" value="profil-2" />
+                                        <label for="{{ i }}radio-choice-2"><img src="{{ quizz.image2 }}">
+                                            <p>{{ quizz.reponse2 }}</p></label>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-3" value="profil-3" />
+                                        <label for="{{ i }}radio-choice-3"><img src="{{ quizz.image3 }}">
+                                            <p>{{ quizz.reponse3 }}</p></label>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <input type="radio" name="reponse-question-{{ i }}" id="{{ i }}radio-choice-4" value="profil-4" />
+                                        <label for="{{ i }}radio-choice-4"><img src="{{ quizz.image4 }}">
+                                            <p>{{ quizz.reponse4 }}</p></label>
+                                    </div>
                                 </div>
                             </div>
+                            <div class="progress">
+                                <div class="progress-bar" class="colorBarre" id="p"></div>
+                            </div>
+                            <button type="button" class='hide{{ i }} button-path' onclick="newValue+=10;updateProgress(newValue)" style="border:0px">Afficher la question suivante</button>
                         </div>
-                        <div class="progress">
-                            <div class="progress-bar" class="colorBarre" id="p"></div>
-                        </div>
-                        <button class='hide{{ i }} button-path' onclick="newValue+=10;updateProgress(newValue)" style="border:0px">Afficher la question suivante</button>
-                    </div>
-                    {% endif %}
-                    <script type="text/javascript">
-                        var progressBar = document.getElementById('p');
-                        var newValue=10;
-                        $("#p").addClass("progress-bar-red");
+                        {% endif %}
+                        <script type="text/javascript">
+                            var progressBar = document.getElementById('p');
+                            var newValue=10;
+                            $("#p").addClass("progress-bar-red");
 
-                        function updateProgress(newValue) {
-                            newValue++;
-                            $(".progress-bar").css("width", newValue + "%");
+                            function updateProgress(newValue) {
+                                newValue++;
+                                $(".progress-bar").css("width", newValue + "%");
 
-                        }
-
-
-
-                    </script>
-                    <script>
-                        $('.hide{{ i }}').click(function(){
-                            $('.question{{ i+1 }}').show();
-                            $('.question{{ i }}').hide();
-                        });
-                    </script>
-                    {% set number = number +1 %}
-                {% endfor %}
+                            }
+                        </script>
+                        <script>
+                            $('.hide{{ i }}').click(function(){
+                                $('.question{{ i+1 }}').show();
+                                $('.question{{ i }}').hide();
+                            });
+                        </script>
+                        {% set number = number +1 %}
+                    {% endfor %}
+                </form>
+            </div>
         </div>
+
     </div>
-
-     {#  {% for quizz in Quizz %}
-            {{ quizz.titre }} : {{ quizz.reponse1 }},
-            {{ quizz.reponse2 }}, {{ quizz.reponse3 }}, {{ quizz.reponse4 }}<br><br>
-        {endfor %}
-
-       {{ dump(Quizz) }}#}
-
-</div>
 
 {% endblock %}

@@ -16,7 +16,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/resultat', 'Question/resultat');
     $r->addRoute('GET', '/quizz', 'Admin/introQuizz');
     $r->addRoute('GET', '/questions', 'Question/questions');
-    $r->addRoute('GET', '/mail', 'Mail/mail');
+    $r->addRoute('POST', '/mail', 'Mail/mail');
     $r->addRoute('POST', '/validateMail', 'Mail/validateMail');
     $r->addRoute('GET', '/sendMail', 'Mail/sendMail');
     $r->addRoute('POST', '/addQuestionAdmin', 'Admin/addQuestionAdmin');

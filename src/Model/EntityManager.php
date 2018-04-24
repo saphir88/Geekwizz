@@ -117,14 +117,15 @@ abstract class EntityManager
     /**
      *
      */
-    public function insertToken($validation, $mail, $genre, $tranche_age)
+    public function insertToken($validation, $mail, $genre, $tranche_age, $id_resultat)
     {
-        $statement = $this->conn->prepare("INSERT INTO $this->table(validation, mail, genre, tranche_age) VALUES (:validation, :mail, :genre, :tranche_age)");
+        $statement = $this->conn->prepare("INSERT INTO $this->table(validation, mail, genre, tranche_age, id_resultat) VALUES (:validation, :mail, :genre, :tranche_age, :id_resultat)");
 
         $statement->bindValue(':validation', $validation, \PDO::PARAM_STR);
         $statement->bindValue(':mail', $mail, \PDO::PARAM_STR);
         $statement->bindValue(':genre', $genre, \PDO::PARAM_STR);
         $statement->bindValue(':tranche_age', $tranche_age, \PDO::PARAM_STR);
+        $statement->bindValue(':id_resultat', $id_resultat, \PDO::PARAM_STR);
         $statement->execute();
     }
 

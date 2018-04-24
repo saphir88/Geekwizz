@@ -12,18 +12,51 @@ use Model\TokenManager;
 class MailController extends AbstractController
 {
     protected $errors = [];
+    protected $resultatprofil;
+    protected $resultatgenre;
+    protected $resultatage;
 
     public function mail()
     {
-        return $this->twig->render('Item/mail.html.twig');
+        //stock la première valeur de POST (age)
+        $this->resultatage = current($_POST);
+
+        //stock la dernière valeur de POST (genre)
+        $this->resultatgenre = end($_POST);
+
+
+        //supprime le premier et le dernier élément de POST
+        array_shift($_POST);
+        array_pop($_POST);
+
+        //cherche l'occurence la plus forte de POST
+        $array = array_count_values($_POST);
+        foreach($array as $key => $value) {
+            if ($value = max($array)) {
+                $this->resultatprofil= $key;
+                break;
+            }
+        }
+
+        //valeur de age
+        var_dump($this->resultatage);
+
+        //valeur du profil
+        var_dump($this->resultatprofil);
+
+        //valeur du genre
+        var_dump($this->resultatgenre);
+
+        return $this->twig->render('Item/mail.html.twig', ['age'=>$this->resultatage, 'profil' => $this->resultatprofil, 'genre' => $this->resultatgenre]);
     }
 
     public function validateMail()
     {
         /* Temporaire -> importer les infos de la BDD */
-        $validation = 1;
-        $genre = "male";
-        $tranche_age= "12-24";
+        $validation = 0;
+        $genre = $_POST['genre'];
+        $tranche_age= $_POST['age'];
+        $id_resultat= substr($_POST['profil'], -1);
         /* Temporaire -> importer les infos de la BDD */
 
         if(isset($_POST['envoyer'])) {
@@ -128,23 +161,22 @@ class MailController extends AbstractController
 
             if (isset($_POST['cond-mention']) && isset($_POST['email']) && !empty($_POST['cond-mention']) && !empty($_POST['email'])){
                 $TokenManager = new TokenManager();
-                /* Temporaire -> importer les infos de la BDD */
-                $TokenManager->insertToken($validation, $mail, $genre, $tranche_age);
+                $TokenManager->insertToken($validation, $mail, $genre, $tranche_age, $id_resultat);
                 mail($mail,$sujet,$message,$header);
                 header("location:/");
             } elseif (!isset($_POST['cond-mention']) || !empty($_POST['cond-mention'])) {
                 $this->errors[] = "Veuillez accepter les conditions générales.";
                 $error = true;
-                return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors,]);
+                return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors]);
             } elseif (!isset($_POST['email']) || !empty($_POST['email'])) {
                 $this->errors[] = "Veuillez indiquer votre Email.";
                 $error = true;
-                return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors,]);
+                return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors]);
             }
         } else {
             $this->errors[] = "Veuillez remplir les champs.";
             $error = true;
-            return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors,]);
+            return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors]);
         }
     }
 }
