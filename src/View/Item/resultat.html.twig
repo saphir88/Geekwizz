@@ -1,22 +1,23 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheets %}<link rel="stylesheet" href="../assets/css/styles.css">{% endblock %}
 {% block content %}
   <div class="container-fluid quizz-path">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
-          {% include 'Item/logo.html.twig' %}
+        <h2>TESTE TA CULTURE GEEK</h2>
+        <a href="/"><img src="../assets/images/logo.png"></a>
+        <h3>TON PROFIL EN MOINS DE 2 MINUTES</h3>
       </div>
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 resultat-path center">
         <div class="couverture-resultat">
-          <p><img src="assets/images/bigbang.png"></p>
+          <p><img src="../{{ profil.image }}"></p>
         </div>
-        <h2>Tu es <span>le Nerd !</span> </h2>
-        <p class="description-resultat">Souvent associé à de grosses lunettes et une hygiène de peau déplorable, le Nerd est un scientifique né. Faisant de la science et des mathématiques ses deux seuls vrais amis, il se réfugie dans un monde de science-fiction.</p>
-        <h2>Partage & défie tes potes</h2>
+        <h2>Tu es <span>le {{ profil.titre }} !</span> </h2>
+        <p class="description-resultat">{{ profil.description }}</h2>
         <p>
-          <a class="image-resultat" href="#"><img src="assets/images/icon_mail.png"></a>
-          <a class="image-resultat" href="#"><img src="assets/images/icon_facebook.png"></a>
-          <a class="image-resultat" href="#"><img src="assets/images/icon_twitter.png"></a>
+          <a class="image-resultat" href="#"><img src="../assets/images/icon_mail.png"></a>
+          <a class="image-resultat" href="#"><img src="../assets/images/icon_facebook.png"></a>
+          <a class="image-resultat" href="#"><img src="../assets/images/icon_twitter.png"></a>
         </p>
       </div>
     </div>

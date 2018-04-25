@@ -58,6 +58,16 @@ abstract class EntityManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
+    public function findOneByMail($mail)
+    {
+        // prepared request
+        $statement = $this->conn->prepare("SELECT mail FROM $this->table WHERE mail=:mail");
+        $statement->bindValue('mail', $mail, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }
+
     /**
      * @param $confirmkey
      * @param $data

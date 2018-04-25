@@ -8,11 +8,11 @@
 
 namespace Model;
 
-//Connection a la table "Token" en base de données
+//Connection a la table "Resultat" en base de données
 
 class ResultatManager extends EntityManager
 {
-    const TABLE = 'Token';
+    const TABLE = 'Resultat';
 
     public function __construct()
     {
