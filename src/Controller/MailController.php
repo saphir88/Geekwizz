@@ -18,36 +18,41 @@ class MailController extends AbstractController
 
     public function mail()
     {
-        //stock la première valeur de POST (age)
-        $this->resultatage = current($_POST);
+        if (isset($_POST['reponse-question-1'])){
+            //stock la première valeur de POST (age)
+            $this->resultatage = current($_POST);
 
-        //stock la dernière valeur de POST (genre)
-        $this->resultatgenre = end($_POST);
+            //stock la dernière valeur de POST (genre)
+            $this->resultatgenre = end($_POST);
 
 
-        //supprime le premier et le dernier élément de POST
-        array_shift($_POST);
-        array_pop($_POST);
+            //supprime le premier et le dernier élément de POST
+            array_shift($_POST);
+            array_pop($_POST);
 
-        //cherche l'occurence la plus forte de POST
-        $array = array_count_values($_POST);
-        foreach($array as $key => $value) {
-            if ($value = max($array)) {
-                $this->resultatprofil= $key;
-                break;
+            //cherche l'occurence la plus forte de POST
+            $array = array_count_values($_POST);
+            foreach($array as $key => $value) {
+                if ($value = max($array)) {
+                    $this->resultatprofil= $key;
+                    break;
+                }
             }
+
+            //valeur de age
+            var_dump($this->resultatage);
+
+            //valeur du profil
+            var_dump($this->resultatprofil);
+
+            //valeur du genre
+            var_dump($this->resultatgenre);
+
+            return $this->twig->render('Item/mail.html.twig', ['age'=>$this->resultatage, 'profil' => $this->resultatprofil, 'genre' => $this->resultatgenre]);
+        }else{
+            header("location:/questions");
         }
 
-        //valeur de age
-        var_dump($this->resultatage);
-
-        //valeur du profil
-        var_dump($this->resultatprofil);
-
-        //valeur du genre
-        var_dump($this->resultatgenre);
-
-        return $this->twig->render('Item/mail.html.twig', ['age'=>$this->resultatage, 'profil' => $this->resultatprofil, 'genre' => $this->resultatgenre]);
     }
 
     public function validateMail()
