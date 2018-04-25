@@ -20,6 +20,7 @@ class Token
     private $genre;
     private $tranche_age;
     private $id_resultat;
+    private $confirmkey;
 
     /**
      * @return mixed
@@ -117,7 +118,19 @@ class Token
         $this->id_resultat = $id_resultat;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getConfirmkey()
+    {
+        return $this->confirmkey;
+    }
 
-
-
+    /**
+     * @param mixed $confirmkey
+     */
+    public function setConfirmkey($confirmkey)
+    {
+        $this->confirmkey = $confirmkey;
+    }
 }

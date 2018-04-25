@@ -61,10 +61,25 @@ class MailController extends AbstractController
 
         if(isset($_POST['envoyer'])) {
             $mail = $_POST['email'];// Déclaration de l'adresse de destination.
+            $sujet = "Ton Profil GeekWizz !";
 
-            $message =
+            $header = "From: \"Team GeekWizz\"<geekwizz.wcs@gmail.com>" ."\r\n";
+            $header .= "Reply-to: \"Team GeekWizz\"<geekwizz.wcs@gmail.com>" ."\r\n";
+            $header .= "MIME-Version :1.0" ."\r\n";
+            $header .= "Content-type:text/html; charset=UTF-8";
 
-                '<html>
+            if (isset($_POST['cond-mention']) && isset($_POST['email']) && !empty($_POST['cond-mention']) && !empty($_POST['email'])){
+
+                $longueurKey = 15;
+                $key = "";
+                for($i=1;$i<$longueurKey;$i++){
+                    $key .= mt_rand(0,9);
+                }
+                $confirmkey = $key;
+
+                $message =
+
+                    '<html>
 
                 <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
                     <table bgcolor="#000000" width="100%" border="0" cellpadding="0" cellspadding="0">
@@ -120,11 +135,10 @@ class MailController extends AbstractController
                                                 <tr>
                                                     <td height="30" style="font-size:30px; line-height:30px;">&nbsp;</td>
                                                 </tr>
-                                                <!-- lien -->
+                                                <!--             !!!!!!!!!!! LINK !!!!!!!!!!!!                 -->
                                                 <tr>
                                                     <td align="center" style="font-family: Helvetica, sans-serif; text-align: center; color: #F0F0F0; mso-line-height-rule: exactly; line-height: 30px">
-                                                        <a href="#" style="color: whitesmoke">J\'accède à mon profil.</a>
-                                                        <!-- !!!!!! GENERER LE LIEN TOKEN HREF !!!!!! -->
+                                                        <a href="http://localhost:8000/resultat/'.$confirmkey.'" style="color: whitesmoke">J\'accède à mon profil.</a>
                                                     </td>
                                                 </tr>
                                                 <!-- espace -->
@@ -152,18 +166,12 @@ class MailController extends AbstractController
                 
                 </html>';
 
-            $sujet = "Ton Profil GeekWizz !";
-
-            $header = "From: \"Team GeekWizz\"<geekwizz.wcs@gmail.com>" ."\r\n";
-            $header .= "Reply-to: \"Team GeekWizz\"<geekwizz.wcs@gmail.com>" ."\r\n";
-            $header .= "MIME-Version :1.0" ."\r\n";
-            $header .= "Content-type:text/html; charset=UTF-8";
-
-            if (isset($_POST['cond-mention']) && isset($_POST['email']) && !empty($_POST['cond-mention']) && !empty($_POST['email'])){
                 $TokenManager = new TokenManager();
-                $TokenManager->insertToken($validation, $mail, $genre, $tranche_age, $id_resultat);
+                $TokenManager->insertToken($validation, $mail, $genre, $tranche_age, $id_resultat, $confirmkey);
                 mail($mail,$sujet,$message,$header);
-                header("location:/");
+                $this->errors[] = "Le lien de votre résultat vous a été envoyé par mail !";
+                $error = true;
+                return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors]);
             } elseif (!isset($_POST['cond-mention']) || !empty($_POST['cond-mention'])) {
                 $this->errors[] = "Veuillez accepter les conditions générales.";
                 $error = true;
