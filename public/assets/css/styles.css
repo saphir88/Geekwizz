@@ -8,6 +8,14 @@
     src: url('../fonts/Oswald-Regular.ttf');
 }
 
+input[type="radio"]:checked+label img {
+    outline: 4px solid red;
+}
+
+input[type="radio"] {
+    transform: scale(0, 0);
+}
+
 html {
     height: 100%;
 }
@@ -495,6 +503,12 @@ center .logo{
         height: 23vh;
     }
 
+    .gallerie label
+    {
+        width: 23vh;
+        height: 23vh;
+    }
+
     .button-valide
     {
         font-size: 20px;
@@ -545,6 +559,12 @@ center .logo{
     }
 
     .gallerie img
+    {
+        width: 100%;
+        height: 25vh;
+    }
+
+    .gallerie label
     {
         width: 100%;
         height: 25vh;
@@ -857,3 +877,29 @@ h2 span
     }
 }
 
+/*--------------------------------LOGIN-------------------------*/
+.form-signin-heading
+{
+    font-size: 30px;
+}
+
+.form-signin button
+{
+    margin-top: 30px;
+}
+
+.form-signin input
+{
+    margin-top: 5px;
+}
+
+.form-signin .btn
+{
+    background: #f30000;
+    border: none;
+}
+
+.alerte_erreur
+{
+    margin-top: 5vh;
+}

@@ -44,7 +44,32 @@ abstract class EntityManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
+   /* /**
+     * @param $id
+     * @return array
+     */
+    /*public function findOneByConfirmkey(int $confirmkey)
+    {
+        // prepared request
+        $statement = $this->conn->prepare("SELECT * FROM $this->table WHERE confirmkey=:confirmkey");
+        $statement->bindValue('confirmkey', $confirmkey, \PDO::PARAM_INT);
+        $statement->execute();
 
+        return $statement->fetch(\PDO::FETCH_ASSOC);
+    }*/
+
+    /**
+     * @param $id
+     * @param $data
+     */
+    public function updateToken($confirmkey, $data)
+    {
+        foreach($data as $key => $value) {
+            $statement = $this->conn->prepare("UPDATE $this->table SET $key = \"$value\" WHERE confirmkey=:confirmkey");
+            $statement->bindValue(':confirmkey', $confirmkey, \PDO::PARAM_STR);
+            $statement->execute();
+        }
+    }
 
 
     public function findQuizz()
@@ -70,6 +95,14 @@ abstract class EntityManager
             $statement->bindValue(':id', $id, \PDO::PARAM_INT);
             $statement->execute();
     }
+
+    public function updateQuest(){
+
+        $statement = $this->conn->prepare("UPDATE $this->table SET  WHERE id=:id");
+        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+    }
+
 
     /**
      *
@@ -106,5 +139,19 @@ abstract class EntityManager
         }
     }
 
+    /**
+     *
+     */
+    public function insertToken($validation, $mail, $genre, $tranche_age, $id_resultat, $confirmkey)
+    {
+        $statement = $this->conn->prepare("INSERT INTO $this->table(validation, mail, genre, tranche_age, id_resultat, confirmkey) VALUES (:validation, :mail, :genre, :tranche_age, :id_resultat, :confirmkey)");
 
+        $statement->bindValue(':validation', $validation, \PDO::PARAM_STR);
+        $statement->bindValue(':mail', $mail, \PDO::PARAM_STR);
+        $statement->bindValue(':genre', $genre, \PDO::PARAM_STR);
+        $statement->bindValue(':tranche_age', $tranche_age, \PDO::PARAM_STR);
+        $statement->bindValue(':id_resultat', $id_resultat, \PDO::PARAM_STR);
+        $statement->bindValue(':confirmkey', $confirmkey, \PDO::PARAM_STR);
+        $statement->execute();
+    }
 }

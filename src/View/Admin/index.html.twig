@@ -30,7 +30,7 @@
             <tr>
                 <td>
                     <form action="/modifIntro" method="POST" id="formintro">
-                        <textarea name="intro" disabled>{{ introduction }}</textarea>
+                        <textarea name="intro" rows="5" cols="50" disabled>{{ introduction }}</textarea>
                     </form>
                 </td>
                 <td>
@@ -47,7 +47,7 @@
             <input type="submit" value="Exporter la BDD en .svg">
         </form>
     </div>
-    <div class="container-fluid">
+    {#<div class="container-fluid">
         <h2>Nombre de questions par quizz :</h2>
         <table>
             <tbody>
@@ -60,7 +60,7 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </div>#}
 
     <div class="container-fluid">
         <h2>Base de données des questions :</h2>
@@ -76,7 +76,7 @@
                 </tr>
             </thead>
             <tbody>
-            <form action="/gestionQuest" method="POST">
+
             {% set number= 1 %}
             {% for i,quizz in Quizz %}
                 {% if i < 2 %}
@@ -85,52 +85,52 @@
                     <td><input type="text" value="{{ quizz.titre }}" disabled></td>
                     <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
                         <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
                     </td>
                     <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
                         <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
+
                     </td>
                     <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
                         <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
+
                     </td>
                     <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
                         <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
+
                     </td>
                 </tr>
                 {% else %}
-                <tr>
-                    <td>{{ number }}</td>
-                    <input type="hidden" name="id" value="{{ quizz.id }}">
-                    <td><input type="text" value="{{ quizz.titre }}" disabled></td>
-                    <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
-                        <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
-                        <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
-                        <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
-                        <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
-                        <div><input type="file" disabled></div>
-                    </td>
-                    <td>
-                        <button type="button" class="modifier" value="">Modifier</button><br><br>
-                        <input type="submit"  name="supprimer" value="Supprimer la question">
-                        <button type="submit" class="valider" value="" disabled>Valider</button>
-                    </td>
-                </tr>
+                <form action="/gestionQuest" method="POST" enctype="multipart/form-data">
+                    <tr>
+                        <td>{{ number }}</td>
+                        <input type="hidden" name="id" value="{{ quizz.id }}">
+                        <td><input type="text" value="{{ quizz.titre }}" disabled></td>
+                        <td><div><input type="text" name="resp1" value="{{ quizz.reponse1 }}" ></div>
+                            <div><img src="{{ quizz.image1 }}" style="width: 100px"></div><input type="hidden" name="img_old_1" id="" value="{{ quizz.image1 }}">
+                            <div><input type="file" id="file1" name="file1" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp2" value="{{ quizz.reponse2 }}" ></div>
+                            <div><img src="{{ quizz.image2 }}" style="width: 100px"></div><input type="hidden" name="img_old_2" id="" value="{{ quizz.image2 }}">
+                            <div><input type="file" id="file2" name="file2" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp3" value="{{ quizz.reponse3 }}" ></div>
+                            <div><img src="{{ quizz.image3 }}" style="width: 100px"></div><input type="hidden" name="img_old_3" id="" value="{{ quizz.image3 }}">
+                            <div><input type="file" id="file3" name="file3" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp4" value="{{ quizz.reponse4 }}" ></div>
+                            <div><img src="{{ quizz.image4 }}" style="width: 100px"></div><input type="hidden" name="img_old_4" id="" value="{{ quizz.image4 }}">
+                            <div><input type="file" id="file4" name="file4" ></div>
+                        </td>
+                        <td>
+                            <input type="submit"  name="supprimer" value="Supprimer la question"><br><hr>
+                            <input type="submit"  name="modifier" value="Modifier la question">
+                        </td>
+                    </tr>
+                </form>
                     {% endif %}
                 {% set number = number +1 %}
             {% endfor %}
-            </form>
+
             </tbody>
         </table>
 <br>
@@ -147,23 +147,23 @@
             </thead>
             <tbody>
                 <tr>
-                    <form action="/addQuestionAdmin" method="POST">
+                    <form action="/addQuestionAdmin" method="POST" enctype="multipart/form-data">
                         <td><input type="text" name="titre" value="" required></td>
                         <td><div><input type="text" name="resp1" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file1" name="file1" ></div>
                         </td>
                         <td><div><input type="text" name="resp2" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file2" name="file2" ></div>
                         </td>
                         <td><div><input type="text" name="resp3" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file3" name="file3" ></div>
                         </td>
                         <td><div><input type="text" name="resp4" value="" required></div>
                             <div><img src="" style="width: 180px"></div>
-                            <div><input type="file" ></div>
+                            <div><input type="file" id="file4" name="file4" ></div>
                         </td>
                         <td>
                             <br>
