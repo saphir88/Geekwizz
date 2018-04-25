@@ -44,22 +44,22 @@ abstract class EntityManager
         return $statement->fetch(\PDO::FETCH_ASSOC);
     }
 
-   /* /**
-     * @param $id
+    /**
+     * @param int $confirmkey
      * @return array
      */
-    /*public function findOneByConfirmkey(int $confirmkey)
+    public function findOneByConfirmkey(int $confirmkey)
     {
         // prepared request
         $statement = $this->conn->prepare("SELECT * FROM $this->table WHERE confirmkey=:confirmkey");
-        $statement->bindValue('confirmkey', $confirmkey, \PDO::PARAM_INT);
+        $statement->bindValue('confirmkey', $confirmkey, \PDO::PARAM_STR);
         $statement->execute();
 
         return $statement->fetch(\PDO::FETCH_ASSOC);
-    }*/
+    }
 
     /**
-     * @param $id
+     * @param $confirmkey
      * @param $data
      */
     public function updateToken($confirmkey, $data)
@@ -85,9 +85,8 @@ abstract class EntityManager
     }*/
 
 
-
     /**
-     *
+     * @param $id
      */
     public function deleteQuest($id)
     {
@@ -103,9 +102,16 @@ abstract class EntityManager
         $statement->execute();
     }
 
-
     /**
-     *
+     * @param $titre
+     * @param $Resp1
+     * @param $Resp2
+     * @param $Resp3
+     * @param $Resp4
+     * @param $Img1
+     * @param $Img2
+     * @param $Img3
+     * @param $Img4
      */
     public function insert($titre, $Resp1, $Resp2, $Resp3, $Resp4, $Img1, $Img2, $Img3, $Img4)
     {
@@ -125,6 +131,23 @@ abstract class EntityManager
 
     }
 
+    /**
+     * @param $mail
+     * @param $genre
+     * @param $tranche_age
+     */
+    public function insertSauvegarde($mail, $genre, $tranche_age)
+    {
+
+        $statement = $this->conn->prepare("INSERT INTO $this->table(mail, genre, tranche_age) VALUES (:mail, :genre, :tranche_age)");
+
+        $statement->bindValue(':mail', $mail, \PDO::PARAM_STR);
+        $statement->bindValue(':genre', $genre, \PDO::PARAM_STR);
+        $statement->bindValue(':tranche_age', $tranche_age, \PDO::PARAM_STR);
+        $statement->execute();
+
+    }
+
 
     /**
      * @param $id
@@ -140,7 +163,12 @@ abstract class EntityManager
     }
 
     /**
-     *
+     * @param $validation
+     * @param $mail
+     * @param $genre
+     * @param $tranche_age
+     * @param $id_resultat
+     * @param $confirmkey
      */
     public function insertToken($validation, $mail, $genre, $tranche_age, $id_resultat, $confirmkey)
     {
