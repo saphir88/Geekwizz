@@ -176,7 +176,7 @@ class MailController extends AbstractController
                 mail($mail, $sujet, $message, $header);
                 $this->errors[] = "Le lien de votre résultat vous a été envoyé par mail !";
                 $error = true;
-                return $this->twig->render("Item/mail.html.twig", ['errors' => $this->errors]);
+                return $this->twig->render("Item/index.html.twig", ['errors' => $this->errors]);
             } elseif (!isset($_POST['cond-mention']) || !empty($_POST['cond-mention'])) {
                 $this->errors[] = "Veuillez accepter les conditions générales.";
                 $error = true;

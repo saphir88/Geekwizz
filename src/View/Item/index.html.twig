@@ -5,6 +5,11 @@
 <div class="container-fluid home">
     <div class="row">
         <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 logo">
+            {% for error in errors %}
+                <div class="row">
+                    <div class="alert alert-danger alerte_erreur">{{ error }}</div>
+                </div>
+            {% endfor %}
             <h2>TESTE TA CULTURE GEEK</h2>
             <p><img src="assets/images/logo.png"></p>
             <a class="button" href="/quizz">CHALLENGE NOUS</a>
