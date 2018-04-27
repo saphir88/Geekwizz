@@ -39,14 +39,6 @@ class MailController extends AbstractController
                 }
             }
 
-            //valeur de age
-            var_dump($this->resultatage);
-
-            //valeur du profil
-            var_dump($this->resultatprofil);
-
-            //valeur du genre
-            var_dump($this->resultatgenre);
 
             return $this->twig->render('Item/mail.html.twig', ['age'=>$this->resultatage, 'profil' => $this->resultatprofil, 'genre' => $this->resultatgenre]);
         }else{
@@ -78,7 +70,7 @@ class MailController extends AbstractController
                 $longueurKey = 15;
                 $key = "";
                 for($i=1;$i<$longueurKey;$i++){
-                    $key .= mt_rand(0,9);
+                    $key .= mt_rand(1,9);
                 }
                 $confirmkey = $key;
 

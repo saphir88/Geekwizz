@@ -187,7 +187,7 @@ class AdminController extends AbstractController
     public function modifIntro()
     {
         $newintro['value'] = $_POST['intro'];
-        var_dump($newintro);
+
         $ConfigManager= new ConfigManager();
         $ConfigManager->update(1, $newintro);
         header('location:/admin');
