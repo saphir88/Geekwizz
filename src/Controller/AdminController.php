@@ -26,8 +26,8 @@ class AdminController extends AbstractController
 
     public function index()
     {
-        //session_start();
-        //if(isset($_SESSION['username'])) {
+        session_start();
+        if(isset($_SESSION['username'])) {
             $QuestionManager = new QuestionManager();
             $Quizz = $QuestionManager->findQuizz();
 
@@ -35,9 +35,9 @@ class AdminController extends AbstractController
             $intro[] = $ConfigManager->findOneById(1);
             $introduction = $intro[0]["value"];
             return $this->twig->render('Admin/index.html.twig', ['Quizz' => $Quizz, 'introduction' => $introduction]);
-        //}else{
-        //    header('location:/login');
-        //}
+        }else{
+            header('location:/login');
+        }
     }
 
     public function addQuestionAdmin()
@@ -102,6 +102,7 @@ class AdminController extends AbstractController
         $scanUploads = scandir($direction);
         unset($scanUploads[array_search('.', $scanUploads)]);
         unset($scanUploads[array_search('..', $scanUploads)]);
+
 
         if (isset($_POST['modifier'])){
             $id = $_POST['id'];

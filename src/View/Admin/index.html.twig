@@ -63,7 +63,7 @@
     </div>#}
 
     <div class="container-fluid">
-        <h2>Base de données des questions :</h2>
+        <h2>Base de données des questions :</h2><span>(Maximum caractère réponse :25)</span>
         <table class="table table-bordered">
             {#<thead>
                 <tr>
@@ -148,7 +148,7 @@
                     <tr>
                         <td>{{ number }}</td>
                         <input type="hidden" name="id" value="{{ quizz.id }}">
-                        <td><input type="text" value="{{ quizz.titre }}"></td>
+                        <td><input type="text" value="{{ quizz.titre }}" disabled></td>
                         <td><div><input type="text" name="resp1" value="{{ quizz.reponse1 }}" ></div>
                             <div><img src="{{ quizz.image1 }}" style="width: 100px"></div><input type="hidden" name="img_old_1" id="" value="{{ quizz.image1 }}">
                             <div><input type="file" id="file1" name="file1" ></div>
