@@ -171,9 +171,9 @@ class AdminController extends AbstractController
         header('Content-Disposition: attachment; filename="export_sauvegarde_geekwizz.csv"');
         $SauvegardeManager = new SauvegardeManager();
         $dataExport = $SauvegardeManager->findAll();
-        echo "\"Id\";\"E-mail\";\"Genre\";\"Tranche d'âge\"";
+        echo "E-mail;Genre;Tranche d'âge";
         foreach($dataExport as $key => $value) {
-            echo "\n".'"'.$value['id'].'";"'.$value['mail'].'";"'.$value['genre'].'";"'.$value['tranche_age'].'"';
+            echo "\n".'"'.$value['mail'].'";"'.$value['genre'].'";"'.$value['tranche_age'].'"';
         }
     }
 
