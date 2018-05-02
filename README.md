@@ -2,7 +2,8 @@
 
 Second projet de la Wild Code School.
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Geekwizz"
+![Logo Geekwizz](https://raw.githubusercontent.com/m0rsak/strasbourg_0218_php_Geekwizz/dev/public/assets/images/logo.png)
+
 
 Le projet :
 
