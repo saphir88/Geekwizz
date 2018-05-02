@@ -26,8 +26,8 @@ class AdminController extends AbstractController
 
     public function index()
     {
-        //session_start();
-        //if(isset($_SESSION['username'])) {
+        session_start();
+        if(isset($_SESSION['username'])) {
             $QuestionManager = new QuestionManager();
             $Quizz = $QuestionManager->findQuizz();
 
@@ -35,9 +35,9 @@ class AdminController extends AbstractController
             $intro[] = $ConfigManager->findOneById(1);
             $introduction = $intro[0]["value"];
             return $this->twig->render('Admin/index.html.twig', ['Quizz' => $Quizz, 'introduction' => $introduction]);
-        //}else{
-        //    header('location:/login');
-        //}
+        }else{
+            header('location:/login');
+        }
     }
 
     public function addQuestionAdmin()
@@ -104,6 +104,7 @@ class AdminController extends AbstractController
         $scanUploads = scandir($direction);
         unset($scanUploads[array_search('.', $scanUploads)]);
         unset($scanUploads[array_search('..', $scanUploads)]);
+
 
         if (isset($_POST['modifier'])){
             $id = $_POST['id'];
@@ -172,9 +173,9 @@ class AdminController extends AbstractController
         header('Content-Disposition: attachment; filename="export_sauvegarde_geekwizz.csv"');
         $SauvegardeManager = new SauvegardeManager();
         $dataExport = $SauvegardeManager->findAll();
-        echo "\"Id\";\"E-mail\";\"Genre\";\"Tranche d'âge\"";
+        echo "E-mail;Genre;Tranche d'âge";
         foreach($dataExport as $key => $value) {
-            echo "\n".'"'.$value['id'].'";"'.$value['mail'].'";"'.$value['genre'].'";"'.$value['tranche_age'].'"';
+            echo "\n".'"'.$value['mail'].'";"'.$value['genre'].'";"'.$value['tranche_age'].'"';
         }
     }
 
@@ -189,12 +190,16 @@ class AdminController extends AbstractController
     public function modifIntro()
     {
         $newintro['value'] = $_POST['intro'];
-        var_dump($newintro);
+
         $ConfigManager= new ConfigManager();
         $ConfigManager->update(1, $newintro);
         header('location:/admin');
 
-        //Valeur de base de l'intro : Tu veux savoir quel est ton profil geek ? À quelle tendance tu appartiens ? C'est simple ! Répond à ce test en moins de 2 minutes et nous te dirons qui tu es. À la fin du test partage ton résultat et défie tes amis.
+    }
 
+    public function deconnexion(){
+        session_start();
+        session_destroy();
+        header('location: /');
     }
 }

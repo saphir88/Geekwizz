@@ -13,12 +13,10 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/login', 'Login/login');
     $r->addRoute('POST', '/postlogin', 'Login/postlogin');
     $r->addRoute('GET', '/mentions', 'Question/mentions_legales');
-    //$r->addRoute('GET', '/resultat', 'Question/resultat');
     $r->addRoute('GET', '/resultat/{id:\d+}', 'Resultat/validateToken');
     $r->addRoute('GET', '/quizz', 'Admin/introQuizz');
     $r->addRoute('POST', '/mail', 'Mail/mail');
     $r->addRoute('GET', '/mail', 'Mail/mail');
-
     $r->addRoute('GET', '/questions', 'Question/randomQuizz');
     $r->addRoute('POST', '/validateMail', 'Mail/validateMail');
     $r->addRoute('GET', '/sendMail', 'Mail/sendMail');
@@ -26,7 +24,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/exportsvg', 'Admin/exportsvg');
     $r->addRoute('POST', '/modifIntro', 'Admin/modifIntro');
     $r->addRoute('POST', '/gestionQuest', 'Admin/gestionQuest');
-
+    $r->addRoute('GET', '/deconnexion', 'Admin/deconnexion');
 });
 
 // Fetch method and URI from somewhere
