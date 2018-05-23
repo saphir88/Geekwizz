@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+
+    <link rel="icon" href="assets/images/favicon.png">
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <h2>Modifier le contenu de la page d'introduction au Quizz:</h2>
+        <table>
+            <tbody>
+            <tr>
+                <td>
+                    <form action="/modifIntro" method="POST" id="formintro">
+                        <textarea name="intro" rows="5" cols="50" maxlength="300" disabled>{{ introduction }}</textarea>
+                    </form>
+                </td>
+                <td>
+                    <button class="modifier">Modifier</button>
+                    <input type="submit" form="formintro" value="Valider">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container-fluid">
+        <h2>Exporter la base de données en .CSV :</h2>
+        <form action="/exportsvg" method="POST">
+            <input type="submit" value="Exporter la BDD en .CSV">
+        </form>
+    </div>
+    {#<div class="container-fluid">
+        <h2>Nombre de questions par quizz :</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td><input type="text" value="10" disabled></td>
+                    <td>
+                        <button type="submit" class="modifier" value="">Modifier</button>
+                        <button type="submit" class="valider" value="" disabled>Valider</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>#}
+
+    <div class="container-fluid">
+        <h2>Base de données des questions :</h2>
+        <p>(Maximum caractères question: 100 / Maximum caractères réponse: 25 / Taille image recommandée 200x200, 300x300, 400x400... )</p>
+        <table class="table table-bordered">
+            {#<thead>
+                <tr>
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Réponse liée à Superman</th>
+                    <th>Réponse liée à Batman</th>
+                    <th>Réponse liée à Supergirl</th>
+                    <th>Réponse liée à Catwoman</th>
+                </tr>#}
+            </thead>
+            <tbody>
+
+            {% set number= 1 %}
+            {% for i,quizz in Quizz %}
+                {% if i < 1 %}
+                <tr style="background-color: lightgrey">
+                    <th>#</th>
+                    <th>Question</th>
+                    <th>Réponse liée à Age < 20</th>
+                    <th>Réponse liée à Age > 20</th>
+                    <th>Réponse liée à Age < 20</th>
+                    <th>Réponse liée à Age > 20</th>
+                </tr>
+                <tr>
+                    <td>{{ number }}</td>
+                    <td><input type="text" value="{{ quizz.titre }}" disabled></td>
+                    <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
+                        <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
+                    </td>
+                    <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
+                        <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
+
+                    </td>
+                    <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
+                        <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
+
+                    </td>
+                    <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
+                        <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
+
+                    </td>
+                </tr>
+                {% elseif i == 1 %}
+                    <tr style="background-color: lightgrey">
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>Réponse liée à homme</th>
+                        <th>Réponse liée à femme</th>
+                        <th>Réponse liée à homme</th>
+                        <th>Réponse liée à femme</th>
+                    </tr>
+                    <tr>
+                        <td>{{ number }}</td>
+                        <td><input type="text" value="{{ quizz.titre }}" disabled></td>
+                        <td><div><input type="text" value="{{ quizz.reponse1 }}" disabled></div>
+                            <div><img src="{{ quizz.image1 }}" style="width: 100px"></div>
+                        </td>
+                        <td><div><input type="text" value="{{ quizz.reponse2 }}" disabled></div>
+                            <div><img src="{{ quizz.image2 }}" style="width: 100px"></div>
+
+                        </td>
+                        <td><div><input type="text" value="{{ quizz.reponse3 }}" disabled></div>
+                            <div><img src="{{ quizz.image3 }}" style="width: 100px"></div>
+
+                        </td>
+                        <td><div><input type="text" value="{{ quizz.reponse4 }}" disabled></div>
+                            <div><img src="{{ quizz.image4 }}" style="width: 100px"></div>
+
+                        </td>
+                    </tr>
+                    <tr style="background-color: lightgrey">
+                        <th>#</th>
+                        <th>Question</th>
+                        <th>Réponse liée à GEEK</th>
+                        <th>Réponse liée à NOLIFE</th>
+                        <th>Réponse liée à NERD</th>
+                        <th>Réponse liée à CASU</th>
+                    </tr>
+                {% else %}
+                <form action="/gestionQuest" method="POST" enctype="multipart/form-data">
+                    <tr>
+                        <td>{{ number }}</td>
+                        <input type="hidden" name="id" value="{{ quizz.id }}">
+                        <td><input type="text" value="{{ quizz.titre }}" disabled></td>
+                        <td><div><input type="text" name="resp1" value="{{ quizz.reponse1 }}" maxlength="25"></div>
+                            <div><img src="{{ quizz.image1 }}" style="width: 100px"></div><input type="hidden" name="img_old_1" id="" value="{{ quizz.image1 }}">
+                            <div><input type="file" id="file1" name="file1" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp2" value="{{ quizz.reponse2 }}" maxlength="25"></div>
+                            <div><img src="{{ quizz.image2 }}" style="width: 100px"></div><input type="hidden" name="img_old_2" id="" value="{{ quizz.image2 }}">
+                            <div><input type="file" id="file2" name="file2" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp3" value="{{ quizz.reponse3 }}" maxlength="25"></div>
+                            <div><img src="{{ quizz.image3 }}" style="width: 100px"></div><input type="hidden" name="img_old_3" id="" value="{{ quizz.image3 }}">
+                            <div><input type="file" id="file3" name="file3" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp4" value="{{ quizz.reponse4 }}" maxlength="25"></div>
+                            <div><img src="{{ quizz.image4 }}" style="width: 100px"></div><input type="hidden" name="img_old_4" id="" value="{{ quizz.image4 }}">
+                            <div><input type="file" id="file4" name="file4" ></div>
+                        </td>
+                        <td>
+                            <input type="submit"  name="supprimer" value="Supprimer la question"><br><hr>
+                            <input type="submit"  name="modifier" value="Modifier la question">
+                        </td>
+                    </tr>
+                </form>
+                    {% endif %}
+                {% set number = number +1 %}
+            {% endfor %}
+
+            </tbody>
+        </table>
+        <br>
+        <h3>Ajouter une question :</h3>
+        <p>(Maximum caractères question: 100 / Maximum caractères réponse: 25 / Taille image recommandée 200x200, 300x300, 400x400... )</p>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Question</th>
+                <th>Réponse liée à GEEK</th>
+                <th>Réponse liée à NOLIFE</th>
+                <th>Réponse liée à NERD</th>
+                <th>Réponse liée à CASU</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <form action="/addQuestionAdmin" method="POST" enctype="multipart/form-data">
+                        <td><input type="text" name="titre" value="" required></td>
+                        <td><div><input type="text" name="resp1" maxlength="25" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" id="file1" name="file1" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp2" maxlength="25" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" id="file2" name="file2" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp3" maxlength="25" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" id="file3" name="file3" ></div>
+                        </td>
+                        <td><div><input type="text" name="resp4" maxlength="25" required></div>
+                            <div><img src="" style="width: 180px"></div>
+                            <div><input type="file" id="file4" name="file4" ></div>
+                        </td>
+                        <td>
+                            <br>
+                            <input type="submit" value="Valider" />
+                        </td>
+                    </form>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <form  action="/deconnexion" method="GET">
+                <button type="submit" class="btn btn-danger">Déconnexion</button>
+            </form>
+            <br>
+        </div>
+
+    </div>
+
+
+
+<script>
+    $('.modifier').on("click" , function(){
+        $(this).parents('tr').find('input').prop("disabled", false);
+        $(this).parents('tr').find('textarea').prop("disabled", false);
+        $(this).parents('tr').find('.valider').prop("disabled", false);
+        $(this).prop("disabled", true);
+    });
+
+    $('.valider').on("click" , function(){
+        $(this).parents('tr').find('input').prop("disabled", true);
+        $(this).parents('tr').find('textarea').prop("disabled", true);
+        $(this).parents('tr').find('.modifier').prop("disabled", false);
+        $(this).prop("disabled", true);
+    });
+
+
+</script>
+</body>
+
+</html>

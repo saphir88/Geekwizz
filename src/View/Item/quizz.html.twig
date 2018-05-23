@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+<div class="container-fluid quizz-path">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
+            {% include 'Item/logo.html.twig' %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 question-path center">
+            <div class="couverture">
+            <p><img src="assets/images/tyron.png"></p>
+            </div>
+            <h2>LAISSE NOUS DEFINIR TON PROFIL</h2>
+            <p class="description">{{ introduction }}</p>
+            <a class="button-path" href="/questions">COMMENCER</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

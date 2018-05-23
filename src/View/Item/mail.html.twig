@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="container-fluid quizz-path">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 logo-path">
+                {% include 'Item/logo.html.twig' %}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 mail-path center">
+                <div class="couverture-mail">
+                    <p><img src="assets/images/homer.png"></p>
+                </div>
+                <h2>Félicitations !</h2>
+                <p class="description-mail">Tu as terminé ce quizz ! Dernière étape, indique nous ton adresse mail pour recevoir le résultat du test et le partager</p>
+                <form action="/validateMail" method="POST">
+                    <div class="form-group">
+                        <div>
+                            <input type="checkbox"  name="cond-mention" id="cond_mention" value="cond_mention" required>
+                            <label for="cond_mention">J'accepte les <a href="/mentions">conditions générales d'utilisation</a></label>
+                        </div>
+                        <br>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="homer.simpson@springfield.com" required>
+                        <br>
+                        <input type="hidden" name="age" class="form-control" value="{{ age }}">
+                        <input type="hidden" name="profil" class="form-control" value="{{ profil }}">
+                        <input type="hidden" name="genre" class="form-control" value="{{ genre }}">
+                        <input type="submit" name="envoyer" class="envoyer-path" value="envoyer">
+                    </div>
+                    {% for error in errors %}
+                        <div class="row">
+                            <div class="alert alert-danger alerte_erreur">{{ error }}</div>
+                        </div>
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
